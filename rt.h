@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                             :+:      :+:    :+:   */
+/*   rt.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/05 04:07:30 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/18 04:53:28 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ typedef struct		s_scene
 	t_cam			cam;
 	float			ambiante;
 	t_obj			*obj;
+	int			filter;
 }					t_scene;
 
 typedef struct		s_sdlpp
@@ -145,6 +146,8 @@ typedef struct		s_sdlpp
 	t_sdl			*sdl;
 }					t_sdlpp;
 
+void				ft_changefilter(t_sdl *sdl, t_scene *t_sdl);
+t_xyz				filter(t_xyz color, int filter);
 void 				ft_cut(t_ray ray, t_obj *s);
 t_xyz 				ft_damcolor(t_obj *s);
 void				recuperer_chemin(GtkWidget *bouton, GtkWidget *file_selection);

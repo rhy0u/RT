@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/14 18:54:40 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/18 04:51:49 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_sdl_loop(t_sdl *sdl, t_scene *scene)
 				finish = 0;
 			else if (sdl->event.key.keysym.sym == SDLK_p)
 				ft_save(sdl);
+			else if (sdl->event.key.keysym.sym == SDLK_f)
+				ft_changefilter(sdl, scene);
 			else
 				ft_movecam(sdl, scene);
 		}
@@ -55,6 +57,7 @@ int		main2(t_sdl *sdl, t_scene *scene, char **av)
 	if (!(sdl->pixels = (Uint32*)malloc(sizeof(sdl->pixels) * L * H)))
 		return (0);
 	ft_bzero(sdl->pixels, L * H * sizeof(Uint32));
+	scene->filter = 0;
 	ft_scene(sdl, scene);
 	return (1);
 }
