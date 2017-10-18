@@ -1,0 +1,86 @@
+<?xml version = "1.0"?>
+<scene>
+	<camera>
+		<origine>-80 10 -280</origine>
+		<look_at>0 10 0</look_at>
+		<ambiante>20</ambiante>
+	</camera>
+	<spot>
+		<origine>10 6 -70</origine>
+		<color>255 255 255</color>
+		<diffuse>100</diffuse>
+	</spot>
+	<object name="spot">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>10 6 -70</origine>
+		<normal>0 1 0</normal>
+		<radius>6</radius>
+		<color>0 200 0</color>
+		<specular>1</specular>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 1 0</cutnorm>>
+	</object>
+	<object name="damier">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>0 -20 0</origine>
+		<normal>0 1 0</normal>
+		<radius>16</radius>
+		<color>105 105 105</color>
+		<specular>0</specular>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 1 0</cutnorm>>
+	</object>
+	<object name="plane">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>0 10 0</origine>
+		<normal>0 0 -1</normal>
+		<radius>16</radius>
+		<color>150 0 105</color>
+		<specular>0</specular>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 1 0</cutnorm>>
+	</object>
+	<object name="cylindre">
+		<rotation>0 0 45</rotation>
+		<translation>0 0 0</translation>
+		<origine>0 10 0</origine>
+		<normal>0 1 0</normal>
+		<radius>6</radius>
+		<color>10 0 100</color>
+		<specular>1</specular>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 1 0</cutnorm>>
+	</object>
+	<object name="sphere">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>-20 6 -10</origine>
+		<normal>0 1 0</normal>
+		<radius>16</radius>
+		<color>0 200 0</color>
+		<specular>1</specular>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 1 0</cutnorm>>
+	</object>
+	<object name="cone">
+		<rotation>80 -50 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>-10 10 0</origine>
+		<normal>0 1 0</normal>
+		<radius>6</radius>
+		<color>150 150 0</color>
+		<specular>1</specular>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 1 0</cutnorm>>
+	</object>
+
+</scene>
