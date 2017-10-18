@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/14 18:54:40 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/18 04:44:13 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,20 @@ int		main(int ac, char **av)
 {
 	t_sdl		sdl;
 	t_scene		scene;
-	GtkWidget *win;
-	GtkWidget *bouton_explorer;
+	GtkWidget	*win;
+	GtkWidget	*bouton_explorer;
 
 	gtk_init(&ac,&av);
 	if (!(filename = malloc(sizeof(char**))))
-		return(0);
+		return (0);
 	win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(win),"GtkFileSelection");
 	gtk_window_set_default_size(GTK_WINDOW(win),320,200);
-	bouton_explorer=gtk_button_new_with_mnemonic("_Explorer...");
+	bouton_explorer = gtk_button_new_with_mnemonic("_Explorer...");
 	gtk_container_add(GTK_CONTAINER(win),bouton_explorer);
-
 	g_signal_connect(G_OBJECT(win),"destroy",G_CALLBACK(quitter), NULL);
-	g_signal_connect(G_OBJECT(bouton_explorer), "clicked", G_CALLBACK(creer_file_selection), win);
-
+	g_signal_connect(G_OBJECT(bouton_explorer), "clicked",
+	G_CALLBACK(creer_file_selection), win);
 	gtk_widget_show_all(win);
 	gtk_main();
 	gtk_widget_destroy((GtkWidget *)win);

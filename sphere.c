@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 23:16:10 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/05 23:45:26 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/18 04:53:12 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ float		ft_equa_sphere(t_ray r, t_obj *s)
 	return (delta);
 }
 
+static void	ft_sphere_bis(t_ray r, t_obj *s, float delta)
+{
+	s->t1 = (-s->b + sqrt(delta)) / (2 * s->a);
+	s->t2 = (-s->b - sqrt(delta)) / (2 * s->a);
+	s->t = (s->t1 < s->t2) ? s->t1 : s->t2;
+}
+
 int			ft_sphere(t_ray r, t_obj *s)
 {
 	float	delta;
@@ -36,9 +43,7 @@ int			ft_sphere(t_ray r, t_obj *s)
 		s->t = LIM;
 		return (0);
 	}
-	s->t1 = (-s->b + sqrt(delta)) / (2 * s->a);
-	s->t2 = (-s->b - sqrt(delta)) / (2 * s->a);
-	s->t = (s->t1 < s->t2) ? s->t1 : s->t2;
+	ft_sphere_bis(r, s, delta);
 	if (s->t < 0)
 	{
 		s->t = LIM;

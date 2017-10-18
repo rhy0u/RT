@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 09:18:04 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/12 23:03:05 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/18 04:18:05 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void		ft_cal_vec_cam(t_scene *s, t_cam *c)
+void	ft_cal_vec_cam(t_scene *s, t_cam *c)
 {
 	c->up_vec = ft_vect(0, -1, 0);
 	c->right_vec = ft_vect(1, 0, 0);
@@ -36,7 +36,7 @@ void		ft_cal_vec_cam(t_scene *s, t_cam *c)
 	c->height = c->width * H / L;
 }
 
-t_xyz		ft_camera(t_scene *s, t_cam c, float x, float y)
+t_xyz	ft_camera(t_scene *s, t_cam c, float x, float y)
 {
 	c.view_plane_up_left = ft_sub_vec(ft_add_vec(s->cam.pos, ft_add_vec(
 				ft_mul_vec_scal(c.vec_dir, c.ratio), ft_mul_vec_scal(

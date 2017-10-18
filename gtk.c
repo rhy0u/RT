@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gtk.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pthouard <pthouard@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/18 04:37:53 by pthouard          #+#    #+#             */
+/*   Updated: 2017/10/18 04:39:10 by pthouard         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt.h"
 
-void quitter(GtkWidget* widget)
+void	quitter(GtkWidget *widget)
 {
 	gtk_widget_destroy(widget);
 	gtk_main_quit();
 }
 
-void creer_file_selection(GtkWindow *win)
+void	creer_file_selection(GtkWindow *win)
 {
-	GtkWidget *dialog;
+	GtkWidget			*dialog;
 	GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_OPEN;
-	gint res;
+	gint				res;
 
 	dialog = gtk_file_chooser_dialog_new ("Open File",
 			win,

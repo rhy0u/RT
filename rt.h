@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                             :+:      :+:    :+:   */
+/*   rt.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pthouard <pthouard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/05 04:07:30 by jcentaur         ###   ########.fr       */
+/*   Created: 2017/10/18 04:45:20 by pthouard          #+#    #+#             */
+/*   Updated: 2017/10/18 04:48:40 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RTV1_H
-# define RTV1_H
+#ifndef RT_H
+# define RT_H
 # include <gtk/gtk.h>
 # include <SDL2/SDL.h>
 # include <stdlib.h>
@@ -33,7 +33,7 @@
 # define SPOT 6
 # define DAM 7
 
-static char *filename;
+static char	*filename;
 
 typedef struct		s_sdl
 {
@@ -145,10 +145,11 @@ typedef struct		s_sdlpp
 	t_sdl			*sdl;
 }					t_sdlpp;
 
-void 				ft_cut(t_ray ray, t_obj *s);
-t_xyz 				ft_damcolor(t_obj *s);
-void				recuperer_chemin(GtkWidget *bouton, GtkWidget *file_selection);
-void				quitter(GtkWidget* widget);
+void				ft_cut(t_ray ray, t_obj *s);
+t_xyz				ft_damcolor(t_obj *s);
+void				recuperer_chemin(GtkWidget *bouton,
+	GtkWidget *file_selection);
+void				quitter(GtkWidget	*widget);
 void				creer_file_selection(GtkWindow *win);
 Uint32				rgb(t_xyz color);
 int					ft_sphere(t_ray r, t_obj *s);
@@ -203,8 +204,6 @@ t_obj				*free_obj(t_obj **obj);
 t_spot				*free_spot(t_spot **spot);
 void				free_all(t_scene *scene, t_sdl *sdl);
 t_xyz				get_pos(char *str, t_xyz trans);
-void 				ft_save(t_sdl *sdl);
-void 				ft_movecam(t_sdl *sdl, t_scene *scene);
-
-
+void				ft_save(t_sdl *sdl);
+void				ft_movecam(t_sdl *sdl, t_scene *scene);
 #endif

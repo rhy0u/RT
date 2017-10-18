@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plane.c                                            :+:      :+:    :+:   */
+/*   ft_movecam.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 17:23:15 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/03 00:39:07 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/18 04:30:52 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void ft_movecam(t_sdl *sdl, t_scene *scene)
+void	ft_movecam(t_sdl *sdl, t_scene *scene)
 {
 	int		key;
 

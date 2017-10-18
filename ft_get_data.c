@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_sphere.c                                   :+:      :+:    :+:   */
+/*   ft_get_data.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 21:08:12 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/07 00:37:44 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/18 04:21:07 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_xyz		get_pos(char *str, t_xyz trans)
 	int		i;
 
 	i = 0;
-	(void) trans;
+	(void)trans;
 	while (isdigit(str[i]) == 0 && str[i] != '-')
 		i++;
 	o.x = ft_atoi(&str[i]) + trans.x;
