@@ -37,7 +37,7 @@
 	<object name="plane">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 10 0</origine>
+		<origine>0 10 20</origine>
 		<normal>0 0 -1</normal>
 		<radius>16</radius>
 		<color>150 0 105</color>

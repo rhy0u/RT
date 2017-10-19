@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <scene>
 	<camera>
-		<origine>0 100 -200</origine>
+		<origine>0 0 -200</origine>
 		<look_at>0 0 0</look_at>
 		<ambiante>20</ambiante>
 	</camera>
@@ -27,7 +27,7 @@
 		<translation>0 0 0</translation>
 		<origine>0 -10 0</origine>
 		<normal>0 1 0</normal>
-		<color>15 70 10</color>
+		<color>255 255 255</color>
 		<specular>0</specular>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
@@ -40,7 +40,7 @@
 		<normal>0 1 0</normal>
 		<radius>15</radius>
 		<color>210 160 255</color>
-		<specular>1</specular>
+		<specular>0</specular>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>

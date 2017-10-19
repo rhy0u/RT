@@ -97,6 +97,7 @@ typedef struct		s_ray
 	float			t;
 	t_xyz			color;
 	t_obj			*obj;
+	t_obj			*objref;
 }					t_ray;
 
 typedef struct		s_cam

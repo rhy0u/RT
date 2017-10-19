@@ -43,14 +43,17 @@ int			ft_inter_obj(t_scene *s, t_ray *ray)
 	ray->obj = new_list();
 	while (tmp)
 	{
-		ft_get_inter(ray, tmp);
-		if (ray->t > tmp->t)
+		if (tmp != ray->objref)
 		{
-			if (tmp->name == DAM)
-				tmp->color = ft_damcolor(tmp);
-			ray->t = tmp->t;
-			ray->color = ft_mul_vec_scal(tmp->color, s->ambiante);
-			ray->obj = tmp;
+			ft_get_inter(ray, tmp);
+			if (ray->t > tmp->t)
+			{
+				if (tmp->name == DAM)
+					tmp->color = ft_damcolor(tmp);
+				ray->t = tmp->t;
+				ray->color = ft_mul_vec_scal(tmp->color, s->ambiante);
+				ray->obj = tmp;
+			}
 		}
 		tmp = tmp->next;
 	}
