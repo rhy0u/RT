@@ -24,9 +24,12 @@ float		ft_equa_cyl(t_ray r, t_obj *s)
 	delta = s->b * s->b - 4 * s->a * s->c;
 	if (delta < 0)
 		return (0);
-	s->t1 = (-s->b + sqrt(delta)) / (2 * s->a);
+	else
+		s->t1 = (-s->b + sqrt(delta)) / (2 * s->a);
 	s->t2 = (-s->b - sqrt(delta)) / (2 * s->a);
 	s->t = (s->t1 < s->t2) ? s->t1 : s->t2;
+	if (s->t < 0)
+		return (0);
 	if (s->cutonoff == 1)
 		ft_cut(r, s);
 	return (1);

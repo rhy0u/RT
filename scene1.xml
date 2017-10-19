@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <scene>
 	<camera>
-		<origine>0 0 -200</origine>
+		<origine>0 100 -200</origine>
 		<look_at>0 0 0</look_at>
 		<ambiante>20</ambiante>
 	</camera>
@@ -10,7 +10,7 @@
 		<color>255 255 255</color>
 		<diffuse>100</diffuse>
 	</spot>
-	<object name="spot">
+	<object name="spt">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
 		<origine>-40 30 0</origine>
@@ -36,9 +36,9 @@
 	<object name="sphere">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 0 0</origine>
+		<origine>0 10 0</origine>
 		<normal>0 1 0</normal>
-		<radius>16</radius>
+		<radius>15</radius>
 		<color>210 160 255</color>
 		<specular>1</specular>
 		<cutonoff>0</cutonoff>
