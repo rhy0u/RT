@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rt.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:03:47 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/03 00:58:08 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/19 02:49:37 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void		ft_scene(t_sdl *sdl, t_scene *scene)
 	ft_cal_vec_cam(scene, &c);
 	ray.eye = scene->cam.pos;
 	y = 0;
-	while (y < H)
+	while (y < H / scene->res)
 	{
 		x = 0;
-		while (x < L)
+		while (x < L / scene->res)
 		{
 			ray.dir = ft_camera(scene, c, x, y);
 			ft_normal(&ray.dir);
-			sdl->pixels[(int)(y * L + x)] = 0x000000;
+			sdl->pixels[(int)(y * L + x)] = rgb(filter(ft_vect(0, 0, 0), scene->filter));
 			if (ft_inter_obj(scene, &ray) != 0)
 			{
 				ft_light(scene, &ray);
-				sdl->pixels[(int)(y * L + x)] = rgb(ray.color);
+				sdl->pixels[(int)(y * L + x)] = rgb(filter(ray.color, scene->filter));
 			}
 			x++;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 09:18:04 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/12 23:03:05 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/19 02:49:51 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ t_xyz		ft_camera(t_scene *s, t_cam c, float x, float y)
 				ft_mul_vec_scal(c.vec_dir, c.ratio), ft_mul_vec_scal(
 				c.up_vec, c.height / 2.0))), ft_mul_vec_scal(c.right_vec,
 				c.width / 2.0));
-	c.xindent = c.width / (float)L;
-	c.yindent = c.height / (float)H;
+	c.xindent = c.width / (float)L * s->res;
+	c.yindent = c.height / (float)H * s->res;
 	return (ft_sub_vec(ft_add_vec(c.view_plane_up_left, ft_sub_vec(
 					ft_mul_vec_scal(c.right_vec, c.xindent * x),
 					ft_mul_vec_scal(c.up_vec, c.yindent * y))), s->cam.pos));
