@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:03:47 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/19 05:17:26 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/19 05:23:56 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 void		ft_scene(t_sdl *sdl, t_scene *scene)
 {
-
-
-
-
-	
 	double	x;
 	double	y;
 	t_ray	ray;
