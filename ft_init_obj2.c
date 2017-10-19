@@ -6,9 +6,11 @@
 /*   By: pthouard <pthouard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 04:27:11 by pthouard          #+#    #+#             */
-/*   Updated: 2017/10/18 04:27:13 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/10/20 01:33:47 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "rt.h"
 
 t_obj		*list_damier(char *str)
 {

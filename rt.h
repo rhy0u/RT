@@ -6,7 +6,7 @@
 /*   By: pthouard <pthouard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 04:45:20 by pthouard          #+#    #+#             */
-/*   Updated: 2017/10/18 04:48:40 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/10/20 01:35:15 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,5 +205,6 @@ t_spot				*free_spot(t_spot **spot);
 void				free_all(t_scene *scene, t_sdl *sdl);
 t_xyz				get_pos(char *str, t_xyz trans);
 void				ft_save(t_sdl *sdl);
+void				info_obj(char *str, t_obj *obj);
 void				ft_movecam(t_sdl *sdl, t_scene *scene);
 #endif
