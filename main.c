@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/18 04:51:49 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/19 03:06:11 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ft_sdl_loop(t_sdl *sdl, t_scene *scene)
 				ft_save(sdl);
 			else if (sdl->event.key.keysym.sym == SDLK_f)
 				ft_changefilter(sdl, scene);
+			else if (sdl->event.key.keysym.sym == SDLK_KP_PLUS || sdl->event.key.keysym.sym == SDLK_KP_MINUS)
+				ft_res(sdl, scene);
 			else
 				ft_movecam(sdl, scene);
 		}
@@ -87,9 +89,10 @@ int		main(int ac, char **av)
 	gtk_main_quit();
 	if (!main2(&sdl, &scene, &filename))
 		return (0);
+	scene.res = 1;
 	sdl.renderer = SDL_CreateRenderer(sdl.win, -1, 0);
 	sdl.texture = SDL_CreateTexture(sdl.renderer, SDL_PIXELFORMAT_ARGB8888,
-		SDL_TEXTUREACCESS_STATIC, L, H);
+		SDL_TEXTUREACCESS_STATIC, L / scene.res, H / scene.res);
 	SDL_UpdateTexture(sdl.texture, NULL, sdl.pixels, L * sizeof(Uint32));
 	SDL_RenderClear(sdl.renderer);
 	SDL_RenderCopy(sdl.renderer, sdl.texture, NULL, NULL);
