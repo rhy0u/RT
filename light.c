@@ -22,20 +22,20 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l)
 
 	if (ray->obj->name == SPOT)
 		ray->color = l->color;
-	a = ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter));
-	r = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
-			ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter)) * 2), l->dir);
-	if (a < 0)
+	if (ft_dot(ft_mul_vec(ray->dir, ray->obj->normal_inter)) < 0)
 	{
-		cd = ft_mul_vec_scal(ft_mul_vec_scal(l->color, -a), l->diffuse);
-		cs = ft_mul_vec_scal(l->color, pow(ft_dot(ft_mul_vec(r, ray->dir)),
-				100));
-		if (ray->obj->specular == 0)
+		r = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
+			ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter)) * 2), l->dir);
+		if ((a = ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter))) < 0)
+		{
+			cd = ft_mul_vec_scal(ft_mul_vec_scal(l->color, -a), l->diffuse);
+			cs = ft_mul_vec_scal(l->color, pow(ft_dot(ft_mul_vec(r, ray->dir)),
+					100));
+			if (ray->obj->specular == 0)
 			cs = ft_vect(0, 0, 0);
-		c = ft_add_vec(cd, cs);
-		c = ft_add_vec(ft_mul_vec_scal(c, 1 / (255 / (M_PI))),
-				ft_vect(1, 1, 1));
-		ray->color = ft_mul_vec(ray->color, c);
+			c = ft_add_vec(cd, cs);
+			ray->color = ft_add_vec(ray->color, c);
+		}
 	}
 }
 
