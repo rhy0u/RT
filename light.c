@@ -30,7 +30,7 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l)
 			cs = ft_mul_vec_scal(l->color, pow(ft_dot(ft_mul_vec(r, ray->dir)),
 					100));
 			if (ray->obj->specular == 0)
-			cs = ft_vect(0, 0, 0);
+				cs = ft_vect(0, 0, 0);
 			c = ft_add_vec(cd, cs);
 			ray->color = ft_add_vec(ray->color, c);
 		}
@@ -49,9 +49,11 @@ int		block(t_spot *l, t_obj *o, t_ray *ray)
 	rl.dir = l->dir;
 	while (o)
 	{
-		if (o->name == 6)
+		if (o->refrac >= 1)
 			o = o->next;
-		if (o != ray->obj)
+		else if (o->name == 6)
+			o = o->next;
+		else if (o != ray->obj)
 		{
 			if (ft_get_inter(&rl, o))
 			{

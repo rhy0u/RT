@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <scene>
 	<camera>
-		<origine>0 0 -200</origine>
+		<origine>0 20 -200</origine>
 		<look_at>0 0 0</look_at>
 		<ambiante>20</ambiante>
 	</camera>
@@ -20,6 +20,7 @@
 		<radius>6</radius>
 		<color>255 255 255</color>
 		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
 		<specular>1</specular>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
@@ -31,11 +32,12 @@
 	<object name="plane">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 -10 0</origine>
+		<origine>0 0 0</origine>
 		<normal>0 1 0</normal>
 		<color>255 255 255</color>
 		<specular>0</specular>
 		<reflec>80/100</reflec>
+		<refrac>100/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
@@ -43,12 +45,13 @@
 	<object name="sphere">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 10 0</origine>
+		<origine>0 5 0</origine>
 		<normal>0 1 0</normal>
 		<radius>15</radius>
 		<color>210 160 255</color>
 		<specular>0</specular>
-		<reflec>100/100</reflec>
+		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>

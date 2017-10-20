@@ -84,6 +84,7 @@ typedef struct		s_obj
 	t_xyz			cut;
 	t_xyz			cutnorm;
 	float			reflec;
+	float			refrac;
 	struct s_obj	*next;
 	float			dc;
 	float			dw;
@@ -190,6 +191,8 @@ t_xyz				ft_mul_vec_scal(t_xyz a, float b);
 t_xyz				ft_div_vec(t_xyz a, t_xyz b);
 t_xyz				ft_add_vec(t_xyz a, t_xyz b);
 t_xyz				ft_mul_vec(t_xyz a, t_xyz b);
+t_xyz				ft_sqrt_vec(t_xyz a);
+t_xyz				ft_sq_vec(t_xyz a);
 t_xyz				ft_cross_vec(t_xyz a, t_xyz b);
 float				ft_magnitude_vec(t_xyz a);
 float				ft_prod_scal(t_xyz a, t_xyz b);
