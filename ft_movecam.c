@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 17:23:15 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/19 03:10:15 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/20 21:05:22 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void ft_movecam(t_sdl *sdl, t_scene *scene)
 			scene->cam.pos.y += 10;
 		else if (key == SDLK_q)
 			scene->cam.pos.y -= 10;
+		ft_bzero(sdl->pixels, (L / scene->res) * (H / scene->res) * sizeof(Uint32));
 		ft_scene(sdl, scene);
 		SDL_UpdateTexture(sdl->texture, NULL, sdl->pixels, L * sizeof(Uint32));
 		SDL_RenderClear(sdl->renderer);
@@ -47,8 +48,9 @@ void	ft_res(t_sdl *sdl, t_scene *scene)
 		scene->res++;
 	else
 		return ;
-	ft_scene(sdl, scene);
 	SDL_DestroyTexture(sdl->texture);
+	ft_bzero(sdl->pixels, (L) * (H) * sizeof(Uint32));
+	ft_scene(sdl, scene);
 	sdl->texture = SDL_CreateTexture(sdl->renderer, SDL_PIXELFORMAT_ARGB8888,
 		SDL_TEXTUREACCESS_STATIC, L / scene->res, H / scene->res);
 	SDL_UpdateTexture(sdl->texture, NULL, sdl->pixels, L * sizeof(Uint32));
@@ -60,8 +62,9 @@ void	ft_res(t_sdl *sdl, t_scene *scene)
 void	ft_changefilter(t_sdl *sdl, t_scene *scene)
 {
 	scene->filter++;
-	if (scene->filter > 3)
+	if (scene->filter > 6)
 		scene->filter = 0;
+	ft_bzero(sdl->pixels, (L / scene->res) * (H / scene->res) * sizeof(Uint32));
 	ft_scene(sdl, scene);
 	SDL_UpdateTexture(sdl->texture, NULL, sdl->pixels, L * sizeof(Uint32));
 	SDL_RenderClear(sdl->renderer);

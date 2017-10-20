@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/19 02:57:08 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/20 21:07:28 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ typedef struct		s_sdlpp
 	t_sdl			*sdl;
 }					t_sdlpp;
 
+void				ft_antialiasing(t_sdl *sdl);
 void				ft_res(t_sdl *sdl, t_scene *scene);
 void				ft_changefilter(t_sdl *sdl, t_scene *t_sdl);
 t_xyz				filter(t_xyz color, int filter);
