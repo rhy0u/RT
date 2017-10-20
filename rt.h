@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/20 21:07:28 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/21 00:27:23 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,5 @@ void				free_all(t_scene *scene, t_sdl *sdl);
 t_xyz				get_pos(char *str, t_xyz trans);
 void 				ft_save(t_sdl *sdl);
 void 				ft_movecam(t_sdl *sdl, t_scene *scene);
-
 
 #endif
