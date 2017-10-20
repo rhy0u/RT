@@ -83,6 +83,7 @@ typedef struct		s_obj
 	float			cutisreal;
 	t_xyz			cut;
 	t_xyz			cutnorm;
+	float			reflec;
 	struct s_obj	*next;
 	float			dc;
 	float			dw;
@@ -211,6 +212,8 @@ void				free_all(t_scene *scene, t_sdl *sdl);
 t_xyz				get_pos(char *str, t_xyz trans);
 void 				ft_save(t_sdl *sdl);
 void 				ft_movecam(t_sdl *sdl, t_scene *scene);
+void 				ft_reflec(t_scene *scene, t_ray *ray, int index);
+void 				ft_reflec_bis(t_scene *scene, t_ray *ray, t_ray *ref, int index);
 
 
 #endif

@@ -12,6 +12,46 @@
 
 #include "rt.h"
 
+void 	ft_reflec_bis(t_scene *scene, t_ray *ray, t_ray *ref, int index)
+{
+	if (ft_inter_obj(scene, ref))
+	{
+		if (ref->obj->name == SPOT)
+			ray->color = ft_add_vec(ray->color, ref->color);
+		else
+		{
+		ft_light(scene, ref);
+		ft_reflec(scene, ref, ++index);
+		ray->color = ft_mul_vec_scal(ft_add_vec(ray->color,
+			ft_mul_vec_scal(ref->color, ray->obj->reflec)), 0.5);
+		}
+	}
+	else
+	{
+		ft_light(scene, ray);
+		ray->color = ft_mul_vec_scal(ft_add_vec(ray->color,
+			ft_vect(0, 0, 0)), 0.5);
+	}
+}
+
+void 	ft_reflec(t_scene *scene, t_ray *ray, int index)
+{
+	if (index > 2)
+		return ;
+	if (ray->obj->reflec != 0)
+	{
+		t_ray ref;
+		ref.objref = ray->obj;
+		ref.eye = ray->obj->inter;
+		ref.dir = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
+			ft_dot(ft_mul_vec(ft_mul_vec_scal(ray->dir, -1),
+			ray->obj->normal_inter)) * 2), ft_mul_vec_scal(ray->dir, -1));
+		ft_reflec_bis(scene, ray, &ref, index);
+	}
+	else
+		ft_light(scene, ray);
+}
+
 void		ft_scene(t_sdl *sdl, t_scene *scene)
 {
 	double	x;
@@ -30,34 +70,9 @@ void		ft_scene(t_sdl *sdl, t_scene *scene)
 			ray.dir = ft_camera(scene, c, x, y);
 			ft_normal(&ray.dir);
 			sdl->pixels[(int)(y * L + x)] = rgb(filter(ft_vect(0, 0, 0), scene->filter));
-
 			if (ft_inter_obj(scene, &ray) != 0)
 			{
-				if (ray.obj->name)
-				{
-					t_ray ref;
-					ref.objref = ray.obj;
-					ref.eye = ray.obj->inter;
-					ref.dir = ft_sub_vec(ft_mul_vec_scal(ray.obj->normal_inter,
-						ft_dot(ft_mul_vec(ft_mul_vec_scal(ray.dir, -1), ray.obj->normal_inter)) * 2), ft_mul_vec_scal(ray.dir, -1));
-					if (ft_inter_obj(scene, &ref))
-					{
-						// if (ref.obj->name != SPHERE)
-						// {
-
-							ft_light(scene, &ref);
-							ray.color = ft_mul_vec_scal(ft_add_vec(ray.color, ref.color), 0.9);
-							// ray.color = ft_vect(255, 0, 0);
-						// }
-						// else
-						// 		ft_light(scene, &ray);
-					}
-					else
-						ft_light(scene, &ray);
-					sdl->pixels[(int)(y * L + x)] = rgb(filter(ray.color, scene->filter));
-				}
-				else
-					ft_light(scene, &ray);
+				ft_reflec(scene, &ray, 0);
 				sdl->pixels[(int)(y * L + x)] = rgb(filter(ray.color, scene->filter));
 			}
 			x++;

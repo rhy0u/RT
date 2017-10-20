@@ -20,8 +20,6 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l)
 	t_xyz cs;
 	t_xyz r;
 
-	if (ray->obj->name == SPOT)
-		ray->color = l->color;
 	if (ft_dot(ft_mul_vec(ray->dir, ray->obj->normal_inter)) < 0)
 	{
 		r = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
@@ -37,6 +35,8 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l)
 			ray->color = ft_add_vec(ray->color, c);
 		}
 	}
+	if (ray->obj->name == SPOT)
+		ray->color = ray->obj->color;
 }
 
 int		block(t_spot *l, t_obj *o, t_ray *ray)

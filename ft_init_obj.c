@@ -42,6 +42,8 @@ void		info_obj(char *str, t_obj *obj)
 			obj->cut = get_xyz(&str[i]);
 		else if (ft_strncmp("<cutnorm>", &str[i], 9) == 0)
 			obj->cutnorm = get_xyz(&str[i]);
+		else if (ft_strncmp("<reflec>", &str[i], 8) == 0)
+			obj->reflec = get_radius(&str[i])/100;
 		i++;
 	}
 }

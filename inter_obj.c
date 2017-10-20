@@ -51,7 +51,10 @@ int			ft_inter_obj(t_scene *s, t_ray *ray)
 				if (tmp->name == DAM)
 					tmp->color = ft_damcolor(tmp);
 				ray->t = tmp->t;
-				ray->color = ft_mul_vec_scal(tmp->color, s->ambiante);
+				if (tmp->name == SPOT)
+					ray->color = tmp->color;
+				else
+					ray->color = ft_mul_vec_scal(tmp->color, s->ambiante);
 				ray->obj = tmp;
 			}
 		}
