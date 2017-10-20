@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rgb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 23:10:07 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/05/13 01:18:35 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/20 03:53:47 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ Uint32		rgb(t_xyz c)
 		c.y = 255;
 	if (c.z > 255)
 		c.z = 255;
+	if (c.x < 0)
+		c.x = 0;
+	if (c.y < 0)
+		c.y = 0;
+	if (c.z < 0)
+		c.z = 0;
 	return (((unsigned int)c.x * 256 + (unsigned int)c.y) * 256 +
 			(unsigned int)c.z);
 }
