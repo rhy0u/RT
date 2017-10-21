@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rt.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 04:03:47 by cmeaun-a          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/10/20 02:04:49 by jcentaur         ###   ########.fr       */
-=======
-/*   Updated: 2017/10/20 21:05:11 by jcentaur         ###   ########.fr       */
->>>>>>> chichi
+/*   Created: 2017/10/21 02:23:38 by jcentaur          #+#    #+#             */
+/*   Updated: 2017/10/21 02:23:58 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +36,6 @@ void		ft_reflec_bis(t_scene *scene, t_ray *ray, t_ray *ref, int index)
 
 void		ft_reflec(t_scene *scene, t_ray *ray, int index)
 {
-<<<<<<< HEAD
-=======
 	t_ray ref;
 
 	if (index > 2)
@@ -103,7 +97,6 @@ void 		ft_refrac(t_scene *scene, t_ray *ray)
 
 void		ft_scene(t_sdl *sdl, t_scene *scene)
 {
->>>>>>> chichi
 	double	x;
 	double	y;
 	t_ray	ray;

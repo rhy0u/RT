@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 02:28:58 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/10/21 02:21:34 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/21 04:18:08 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ t_xyz	filter(t_xyz color, int filter)
 	else if (filter == 6)
 	{
 		res.x = 0;
-		res.y = 0;
+		res.y = color.y;
 		res.z = color.z;
 	}
 	return (res);
