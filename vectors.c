@@ -22,6 +22,26 @@ t_xyz		ft_div_vec(t_xyz a, t_xyz b)
 	return (res);
 }
 
+t_xyz		ft_sqrt_vec(t_xyz a)
+{
+	t_xyz	res;
+
+	res.x = sqrt(a.x);
+	res.y = sqrt(a.y);
+	res.z = sqrt(a.z);
+	return (res);
+}
+
+t_xyz		ft_sq_vec(t_xyz a)
+{
+	t_xyz	res;
+
+	res.x = a.x * a.x;
+	res.y = a.y * a.y;
+	res.z = a.z * a.z;
+	return (res);
+}
+
 t_xyz		ft_cross_vec(t_xyz a, t_xyz b)
 {
 	t_xyz	res;
