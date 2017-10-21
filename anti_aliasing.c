@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/20 03:55:13 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/10/20 06:48:31 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/21 02:22:15 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ static	t_xyz ub(Uint32 i)
 {
 	t_xyz rgb;
 
-	rgb.x = i & 255;
+	rgb.z = i & 255;
 	rgb.y = i >> 8 & 255;
-	rgb.z = i >> 16 & 255;
+	rgb.x = i >> 16 & 255;
 	return rgb;
 }
 
-static Uint32 moy(t_xyz aa[9])
+static Uint32 moy(t_xyz aa[4])
 {
 	t_xyz	res;
 
-	res = ft_add_vec(aa[0], ft_add_vec(aa[1], ft_add_vec(aa[2], ft_add_vec(aa[3],
-		ft_add_vec(aa[4], ft_add_vec(aa[5], ft_add_vec(aa[6], ft_add_vec(aa[7],
-	aa[8]))))))));
+	res = ft_add_vec(aa[0], ft_add_vec(aa[1], ft_add_vec(aa[2],
+		ft_add_vec(aa[3], ft_add_vec(aa[4], ft_add_vec(aa[5],
+		ft_add_vec(aa[8], ft_add_vec(aa[7], aa[8]))))))));
 	res = ft_mul_vec_scal(res, 1 / 9.0);
 	return (rgb(res));
 }
@@ -63,5 +63,4 @@ void	ft_antialiasing(t_sdl *sdl)
 	SDL_RenderClear(sdl->renderer);
 	SDL_RenderCopy(sdl->renderer, sdl->texture, NULL, NULL);
 	SDL_RenderPresent(sdl->renderer);
-	printf("ready\n");
 }

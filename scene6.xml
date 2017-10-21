@@ -16,8 +16,10 @@
 		<origine>10 6 -70</origine>
 		<normal>0 1 0</normal>
 		<radius>6</radius>
-		<color>0 200 0</color>
+		<color>255 255 255</color>
 		<specular>1</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
@@ -30,6 +32,8 @@
 		<radius>16</radius>
 		<color>105 105 105</color>
 		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
@@ -37,10 +41,12 @@
 	<object name="plane">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 10 0</origine>
+		<origine>0 10 20</origine>
 		<normal>0 0 -1</normal>
 		<radius>16</radius>
 		<color>150 0 105</color>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
 		<specular>0</specular>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
@@ -54,6 +60,8 @@
 		<radius>6</radius>
 		<color>10 0 100</color>
 		<specular>1</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
@@ -64,8 +72,10 @@
 		<origine>-20 6 -10</origine>
 		<normal>0 1 0</normal>
 		<radius>16</radius>
-		<color>0 200 0</color>
+		<color>255 0 0</color>
 		<specular>1</specular>
+		<reflec>20/100</reflec>
+		<refrac>100/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
@@ -78,6 +88,8 @@
 		<radius>6</radius>
 		<color>150 150 0</color>
 		<specular>1</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>

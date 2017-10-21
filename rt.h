@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/20 04:28:44 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/21 02:19:37 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ typedef struct		s_obj
 	float			cutisreal;
 	t_xyz			cut;
 	t_xyz			cutnorm;
+	float			reflec;
+	float			refrac;
 	struct s_obj	*next;
 	float			dc;
 	float			dw;
@@ -97,6 +99,7 @@ typedef struct		s_ray
 	float			t;
 	t_xyz			color;
 	t_obj			*obj;
+	t_obj			*objref;
 }					t_ray;
 
 typedef struct		s_cam
@@ -189,6 +192,8 @@ t_xyz				ft_mul_vec_scal(t_xyz a, float b);
 t_xyz				ft_div_vec(t_xyz a, t_xyz b);
 t_xyz				ft_add_vec(t_xyz a, t_xyz b);
 t_xyz				ft_mul_vec(t_xyz a, t_xyz b);
+t_xyz				ft_sqrt_vec(t_xyz a);
+t_xyz				ft_sq_vec(t_xyz a);
 t_xyz				ft_cross_vec(t_xyz a, t_xyz b);
 float				ft_magnitude_vec(t_xyz a);
 float				ft_prod_scal(t_xyz a, t_xyz b);
@@ -211,6 +216,7 @@ void				free_all(t_scene *scene, t_sdl *sdl);
 t_xyz				get_pos(char *str, t_xyz trans);
 void 				ft_save(t_sdl *sdl, t_scene *scene);
 void 				ft_movecam(t_sdl *sdl, t_scene *scene);
-
+void 				ft_reflec(t_scene *scene, t_ray *ray, int index);
+void 				ft_reflec_bis(t_scene *scene, t_ray *ray, t_ray *ref, int index);
 
 #endif
