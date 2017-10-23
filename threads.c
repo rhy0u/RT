@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 07:03:00 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/10/23 22:50:56 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/23 23:21:18 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_thread1(t_sdl *sdl, t_scene *scene)
 	s->lock = (pthread_mutex_t)PTHREAD_MUTEX_INITIALIZER;
 	s->y = 0;
 	s->x = 0;
-	s->limx = L / scene->res;
-	s->limy = H / scene->res;
+	s->limx = L / (scene->res * 2);
+	s->limy = H / (scene->res * 2);
 	s->sdl = sdl;
 	s->scene = scene;
 	pthread_create(&thread,  NULL,ft_thread, (void *)s);
@@ -83,7 +83,7 @@ void	ft_thread4(t_sdl *sdl, t_scene *scene)
 void		ft_scene(t_sdl *sdl, t_scene *scene)
 {
 	ft_thread1(sdl, scene);
-// 	ft_thread2(sdl, scene);
-// 	ft_thread3(sdl, scene);
-// 	ft_thread4(sdl, scene);
+	ft_thread2(sdl, scene);
+	ft_thread3(sdl, scene);
+ 	ft_thread4(sdl, scene);
 }
