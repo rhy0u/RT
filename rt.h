@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/21 02:19:37 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/23 21:27:45 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <math.h>
+# include <pthread.h>
 # include "./libft/libft.h"
 # include "./libft/get_next_line.h"
 # define L 1280
@@ -148,8 +149,14 @@ typedef struct		s_sdlpp
 {
 	t_scene			*scene;
 	t_sdl			*sdl;
+	pthread_mutex_t	lock;
+	int				x;
+	int				y;
+	int				limy;
+	int				limx;
 }					t_sdlpp;
 
+void				*ft_thread(void  *data);
 void				ft_antialiasing(t_sdl *sdl);
 void				ft_res(t_sdl *sdl, t_scene *scene);
 void				ft_changefilter(t_sdl *sdl, t_scene *t_sdl);

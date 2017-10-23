@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 00:05:18 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/10/21 02:32:00 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/23 22:56:38 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ void move(t_scene *scene, int key, t_xyz dir)
 	{
 		if (key == SDLK_w)
 		{
-			scene->cam.look_at = ft_add_vec(scene->cam.look_at, ft_mul_vec_scal(dir, 10));
-			scene->cam.pos = ft_add_vec(scene->cam.pos, ft_mul_vec_scal(dir, 10));
+			scene->cam.look_at = ft_add_vec(scene->cam.look_at, ft_mul_vec_scal(dir, 5));
+			scene->cam.pos = ft_add_vec(scene->cam.pos, ft_mul_vec_scal(dir, 5));
 		}
 		else if (key == SDLK_s)
 		{
-			scene->cam.look_at = ft_add_vec(scene->cam.look_at, ft_mul_vec_scal(dir, -10));
-			scene->cam.pos = ft_add_vec(scene->cam.pos, ft_mul_vec_scal(dir, -10));
+			scene->cam.look_at = ft_add_vec(scene->cam.look_at, ft_mul_vec_scal(dir, -5));
+			scene->cam.pos = ft_add_vec(scene->cam.pos, ft_mul_vec_scal(dir, -5));
 		}
 		else if (key == SDLK_e)
 		{
-			dir = rotation_x(dir, 0.0872665);
+			dir = rotation_x(dir, 0.0436332);
 			scene->cam.look_at = ft_add_vec(scene->cam.pos, dir);
 		}
 		else if (key == SDLK_q)
 		{
-			dir = rotation_x(dir, -0.0872665);
+			dir = rotation_x(dir, -0.0436332);
 			scene->cam.look_at = ft_add_vec(scene->cam.pos, dir);
 		}
 	}
