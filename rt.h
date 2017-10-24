@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/21 00:27:23 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/24 03:49:28 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <math.h>
+# include <pthread.h>
 # include "./libft/libft.h"
 # include "./libft/get_next_line.h"
 # define L 1280
@@ -149,8 +150,14 @@ typedef struct		s_sdlpp
 {
 	t_scene			*scene;
 	t_sdl			*sdl;
+	pthread_mutex_t	lock;
+	int				x;
+	int				y;
+	int				limy;
+	int				limx;
 }					t_sdlpp;
 
+void				*ft_thread(void  *data);
 void				ft_antialiasing(t_sdl *sdl);
 void				ft_res(t_sdl *sdl, t_scene *scene);
 void				ft_changefilter(t_sdl *sdl, t_scene *t_sdl);
@@ -215,7 +222,7 @@ t_obj				*free_obj(t_obj **obj);
 t_spot				*free_spot(t_spot **spot);
 void				free_all(t_scene *scene, t_sdl *sdl);
 t_xyz				get_pos(char *str, t_xyz trans);
-void 				ft_save(t_sdl *sdl);
+void 				ft_save(t_sdl *sdl, t_scene *scene);
 void 				ft_movecam(t_sdl *sdl, t_scene *scene);
 void 				ft_reflec(t_scene *scene, t_ray *ray, int index);
 void 				ft_reflec_bis(t_scene *scene, t_ray *ray, t_ray *ref, int index);

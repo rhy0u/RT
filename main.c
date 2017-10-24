@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/19 03:06:11 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/24 04:47:51 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_sdl_loop(t_sdl *sdl, t_scene *scene)
 			if (key == SDLK_ESCAPE)
 				finish = 0;
 			else if (key == SDLK_p)
-				ft_save(sdl);
+				ft_save(sdl, scene);
 			else if (key == SDLK_f)
 				ft_changefilter(sdl, scene);
 			else if (key == SDLK_KP_PLUS || key == SDLK_KP_MINUS)
@@ -72,12 +72,13 @@ int		main(int ac, char **av)
 {
 	t_sdl		sdl;
 	t_scene		scene;
-	GtkWidget *win;
-	GtkWidget *bouton_explorer;
+	GtkWidget 	*bouton_explorer;
+	GtkWidget 	*win;
 
-	gtk_init(&ac,&av);
+
 	if (!(filename = malloc(sizeof(char**))))
 		return(0);
+	gtk_init(&ac,&av);
 	win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(win),"GtkFileSelection");
 	gtk_window_set_default_size(GTK_WINDOW(win),320,200);

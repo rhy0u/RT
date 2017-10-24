@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 17:23:15 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/21 01:20:26 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/21 02:24:40 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_res(t_sdl *sdl, t_scene *scene)
 void	ft_changefilter(t_sdl *sdl, t_scene *scene)
 {
 	scene->filter++;
-	if (scene->filter > 3)
+	if (scene->filter > 6)
 		scene->filter = 0;
 	ft_bzero(sdl->pixels, (L / scene->res) * (H / scene->res) * sizeof(Uint32));
 	ft_scene(sdl, scene);

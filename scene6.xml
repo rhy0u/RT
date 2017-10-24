@@ -19,7 +19,7 @@
 		<color>255 255 255</color>
 		<specular>1</specular>
 		<reflec>0/100</reflec>
-		<refrac>100/100</refrac>
+		<refrac>0/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
@@ -45,8 +45,8 @@
 		<normal>0 0 -1</normal>
 		<radius>16</radius>
 		<color>150 0 105</color>
-		<reflec>0/100</reflec>
-		<refrac>100/100</refrac>
+		<reflec>60/100</reflec>
+		<refrac>0/100</refrac>
 		<specular>0</specular>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
@@ -61,7 +61,7 @@
 		<color>10 0 100</color>
 		<specular>1</specular>
 		<reflec>0/100</reflec>
-		<refrac>100/100</refrac>
+		<refrac>0/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
@@ -75,7 +75,7 @@
 		<color>255 0 0</color>
 		<specular>1</specular>
 		<reflec>20/100</reflec>
-		<refrac>100/100</refrac>
+		<refrac>0/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
@@ -89,7 +89,7 @@
 		<color>150 150 0</color>
 		<specular>1</specular>
 		<reflec>0/100</reflec>
-		<refrac>100/100</refrac>
+		<refrac>0/100</refrac>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
