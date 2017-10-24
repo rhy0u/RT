@@ -51,7 +51,8 @@
 		<color>210 160 255</color>
 		<specular>0</specular>
 		<reflec>0/100</reflec>
-		<refrac>0/100</refrac>
+		<refrac>100/100</refrac>
+		<pctrans>50</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>

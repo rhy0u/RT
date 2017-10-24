@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 02:23:38 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/10/23 22:51:46 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/24 04:50:23 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ void		*ft_thread(void  *data)
 		{
 			ray.dir = ft_camera(s->scene, c, x, s->y);
 			ft_normal(&ray.dir);
-			// pthread_mutex_lock(&(s->lock));
 			s->sdl->pixels[(int)(s->y * L + x)] = rgb(filter(ft_vect(0, 0, 0), s->scene->filter));
 			if (ft_inter_obj(s->scene, &ray) != 0)
 			{
@@ -120,7 +119,6 @@ void		*ft_thread(void  *data)
 				ft_refrac(s->scene, &ray);
 				s->sdl->pixels[(int)(s->y * L + x)] = rgb(filter(ray.color, s->scene->filter));
 			}
-			// pthread_mutex_unlock(&(s->lock));
 			x++;
 		}
 		s->y++;
