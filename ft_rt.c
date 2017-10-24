@@ -62,7 +62,7 @@ void		ft_refrac_bis(t_scene *scene, t_ray *ray, t_ray *ref)
 		else
 		{
 			ft_light(scene, ref);
-			ray->color = ft_mul_vec_scal(ft_add_vec(ray->color, ft_mul_vec_scal(ref->color, 1)), 0.5);
+			ray->color = ft_mul_vec_scal(ft_add_vec(ray->color, ft_mul_vec_scal(ref->color, ray->obj->pctrans)), 0.5);
 		}
 	}
 	else
@@ -76,23 +76,48 @@ void		ft_refrac_bis(t_scene *scene, t_ray *ray, t_ray *ref)
 void 		ft_refrac(t_scene *scene, t_ray *ray)
 {
 	t_ray ref;
-	float n;
+	float p;
 
 	if(ray->obj->refrac >= 1)
 	{
-		n = 1.0 / ray->obj->refrac;
-		ref.objref = ray->obj;
-		ref.eye = ray->obj->inter;
-		ref.dir = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
-			(n * ft_dot(ft_mul_vec(ray->obj->normal_inter,
-			ft_mul_vec_scal(ray->dir, -1)))) - sqrt(1 - n * n * (1 -
-			ft_dot(ft_sq_vec(ft_mul_vec(ray->obj->normal_inter,
-			ft_mul_vec_scal(ray->dir, -1))))))),
-			ft_mul_vec_scal(ft_mul_vec_scal(ray->dir, -1), n));
-		ft_refrac_bis(scene, ray, &ref);
+		if(ray->obj->name == PLANE)
+		{
+			ref.objref = ray->obj;
+			ref.eye = ray->obj->inter;
+			ref.dir = ray->dir;
+			ft_refrac_bis(scene, ray, &ref);
+		}
+		else
+		{
+
+			p = 1.0 / 1.05;
+			ref.objref = ray->obj;
+			ref.eye = ray->eye;
+			ref.dir = ray->dir;
+			t_xyz n = ray->obj->normal_inter;
+			t_xyz i = ft_mul_vec_scal(ray->dir, -1);
+			ref.dir = ft_sub_vec(ft_mul_vec_scal(n,
+				(p * (ft_dot(ft_mul_vec(n, i) ))-sqrt(1-p*p*(1- ft_dot(ft_mul_vec(n, i) )* ft_dot(ft_mul_vec(n, i) )  ))      ) ),
+				ft_mul_vec_scal(i, p)
+			);
+
+
+
+
+
+
+
+			ft_refrac_bis(scene, ray, &ref);
+
+
+
+
+
+
+		}
 	}
-	else
-		ft_light(scene, ray);
+	if (ray->obj->reflec)
+		ray->color = ft_mul_vec_scal(ray->color, 0.5);
 }
 
 void		ft_scene(t_sdl *sdl, t_scene *scene)

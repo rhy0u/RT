@@ -46,6 +46,8 @@ void		info_obj(char *str, t_obj *obj)
 			obj->reflec = get_radius(&str[i]) / 100;
 		else if (ft_strncmp("<refrac>", &str[i], 8) == 0)
 			obj->refrac = get_radius(&str[i]) / 100;
+		else if (ft_strncmp("<pctrans>", &str[i], 8) == 0)
+			obj->pctrans = get_radius(&str[i]) / 100;
 		i++;
 	}
 }

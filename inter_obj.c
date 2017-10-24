@@ -43,6 +43,7 @@ int			ft_inter_obj(t_scene *s, t_ray *ray)
 	ray->obj = new_list();
 	while (tmp)
 	{
+
 		if (tmp != ray->objref)
 		{
 			ft_get_inter(ray, tmp);
