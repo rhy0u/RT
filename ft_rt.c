@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 04:03:47 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/19 02:49:37 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/20 21:05:11 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void		ft_scene(t_sdl *sdl, t_scene *scene)
 		{
 			ray.dir = ft_camera(scene, c, x, y);
 			ft_normal(&ray.dir);
-			sdl->pixels[(int)(y * L + x)] = rgb(filter(ft_vect(0, 0, 0), scene->filter));
+			sdl->pixels[(int)(y * (L) + x)] = rgb(filter(ft_vect(0, 0, 0), scene->filter));
 			if (ft_inter_obj(scene, &ray) != 0)
 			{
 				ft_reflec(scene, &ray, 0);
