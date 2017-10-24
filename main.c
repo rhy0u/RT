@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/21 02:20:13 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/24 04:47:51 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,13 @@ int		main(int ac, char **av)
 {
 	t_sdl		sdl;
 	t_scene		scene;
-	GtkWidget *win;
-	GtkWidget *bouton_explorer;
+	GtkWidget 	*bouton_explorer;
+	GtkWidget 	*win;
 
-	gtk_init(&ac,&av);
+
 	if (!(filename = malloc(sizeof(char**))))
 		return(0);
+	gtk_init(&ac,&av);
 	win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(win),"GtkFileSelection");
 	gtk_window_set_default_size(GTK_WINDOW(win),320,200);
