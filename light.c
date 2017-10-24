@@ -63,6 +63,9 @@ int		block(t_spot *l, t_obj *o, t_ray *ray)
 							l->pos));
 				if (l->light_to_inter_dist < l->light_to_obj_dist)
 					block = 1;
+				if (o->refrac >= 1)
+					ray->color = ft_mul_vec_scal(ray->color,  + ray->obj->pctrans);
+
 			}
 		}
 		o = o->next;
