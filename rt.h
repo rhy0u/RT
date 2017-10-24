@@ -86,6 +86,7 @@ typedef struct		s_obj
 	t_xyz			cutnorm;
 	float			reflec;
 	float			refrac;
+	float			pctrans;
 	struct s_obj	*next;
 	float			dc;
 	float			dw;
