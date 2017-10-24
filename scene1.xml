@@ -3,24 +3,25 @@
 	<camera>
 		<origine>0 20 -200</origine>
 		<look_at>0 0 0</look_at>
-		<ambiante>20</ambiante>
+		<ambiante>30</ambiante>
 	</camera>
 
 
 	<spot>
-		<origine>-40 30 0</origine>
+		<origine>0 50 0</origine>
 		<color>255 255 255</color>
 		<diffuse>100</diffuse>
 	</spot>
 	<object name="spot">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>-40 30 0</origine>
+		<origine>0 50 0</origine>
 		<normal>0 1 0</normal>
 		<radius>6</radius>
 		<color>255 255 255</color>
 		<reflec>0/100</reflec>
 		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
 		<specular>1</specular>
 		<cutonoff>0</cutonoff>
 		<cut>0 0 0</cut>
@@ -29,15 +30,30 @@
 
 
 
-	<object name="plane">
+	<object name="damier">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 0 0</origine>
+		<origine>0 -30 0</origine>
 		<normal>0 1 0</normal>
 		<color>255 255 255</color>
 		<specular>0</specular>
-		<reflec>80/100</reflec>
-		<refrac>100/100</refrac>
+		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>100/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cut>-20 0 0</cut>
+		<cutnorm>1 0 0</cutnorm>
+	</object>
+	<object name="plane">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>0 0 60</origine>
+		<normal>0 0 -1</normal>
+		<color>255 0 0</color>
+		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>100/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
@@ -45,13 +61,30 @@
 	<object name="sphere">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 5 0</origine>
+		<origine>0 0 0</origine>
 		<normal>0 1 0</normal>
 		<radius>15</radius>
 		<color>210 160 255</color>
 		<specular>0</specular>
 		<reflec>0/100</reflec>
-		<refrac>0/100</refrac>
+		<refrac>100/100</refrac>
+		<pctrans>90/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cutisreal>0</cutisreal>
+		<cut>0 10 0</cut>
+		<cutnorm>1 -2 0</cutnorm>
+	</object>
+	<object name="sphere">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>0 0 20</origine>
+		<normal>0 1 0</normal>
+		<radius>5</radius>
+		<color>210 160 255</color>
+		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
+		<pctrans>90/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>

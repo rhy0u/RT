@@ -20,7 +20,7 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l)
 	t_xyz cs;
 	t_xyz r;
 
-	if (ft_dot(ft_mul_vec(ray->dir, ray->obj->normal_inter)) < 0)
+	if (ft_dot(ft_mul_vec(ray->dir, ray->obj->normal_inter)) < 0 || ray->obj->refrac >= 1)
 	{
 		r = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
 			ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter)) * 2), l->dir);
@@ -49,9 +49,11 @@ int		block(t_spot *l, t_obj *o, t_ray *ray)
 	rl.dir = l->dir;
 	while (o)
 	{
-		if (o->refrac >= 1)
+		if (o->refrac >= 1 && o->name == PLANE)
 			o = o->next;
-		else if (o->name == 6)
+		if (!o)
+			return 0;
+		if (o->name == 6)
 			o = o->next;
 		else if (o != ray->obj)
 		{
