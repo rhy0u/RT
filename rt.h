@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/24 03:49:28 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/25 03:02:03 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ typedef struct		s_scene
 	t_obj			*obj;
 	int				filter;
 	int				res;
+	int				celshading;
 }					t_scene;
 
 typedef struct		s_sdlpp

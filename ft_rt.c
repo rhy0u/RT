@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 02:23:38 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/10/24 04:50:23 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/25 02:44:22 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void		ft_refrac_bis(t_scene *scene, t_ray *ray, t_ray *ref)
 		else
 		{
 			ft_light(scene, ref);
-			ray->color = ft_mul_vec_scal(ft_add_vec(ray->color, ft_mul_vec_scal(ref->color, ray->obj->pctrans)), 0.5);
+			ray->color = ft_mul_vec_scal(ft_add_vec(ray->color, ft_mul_vec_scal(ref->color, 1)), 0.5);
 		}
 	}
 	else
@@ -76,48 +76,23 @@ void		ft_refrac_bis(t_scene *scene, t_ray *ray, t_ray *ref)
 void 		ft_refrac(t_scene *scene, t_ray *ray)
 {
 	t_ray ref;
-	float p;
+	float n;
 
 	if(ray->obj->refrac >= 1)
 	{
-		if(ray->obj->name == PLANE)
-		{
-			ref.objref = ray->obj;
-			ref.eye = ray->obj->inter;
-			ref.dir = ray->dir;
-			ft_refrac_bis(scene, ray, &ref);
-		}
-		else
-		{
-
-			p = 1.0 / 1.05;
-			ref.objref = ray->obj;
-			ref.eye = ray->eye;
-			ref.dir = ray->dir;
-			t_xyz n = ray->obj->normal_inter;
-			t_xyz i = ft_mul_vec_scal(ray->dir, -1);
-			ref.dir = ft_sub_vec(ft_mul_vec_scal(n,
-				(p * (ft_dot(ft_mul_vec(n, i) ))-sqrt(1-p*p*(1- ft_dot(ft_mul_vec(n, i) )* ft_dot(ft_mul_vec(n, i) )  ))      ) ),
-				ft_mul_vec_scal(i, p)
-			);
-
-
-
-
-
-
-
-			ft_refrac_bis(scene, ray, &ref);
-
-
-
-
-
-
-		}
+		n = 1.0 / ray->obj->refrac;
+		ref.objref = ray->obj;
+		ref.eye = ray->obj->inter;
+		ref.dir = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
+			(n * ft_dot(ft_mul_vec(ray->obj->normal_inter,
+			ft_mul_vec_scal(ray->dir, -1)))) - sqrt(1 - n * n * (1 -
+			ft_dot(ft_sq_vec(ft_mul_vec(ray->obj->normal_inter,
+			ft_mul_vec_scal(ray->dir, -1))))))),
+			ft_mul_vec_scal(ft_mul_vec_scal(ray->dir, -1), n));
+		ft_refrac_bis(scene, ray, &ref);
 	}
-	if (ray->obj->reflec)
-		ray->color = ft_mul_vec_scal(ray->color, 0.5);
+	else
+		ft_light(scene, ray);
 }
 
 void		*ft_thread(void  *data)
@@ -137,6 +112,7 @@ void		*ft_thread(void  *data)
 		{
 			ray.dir = ft_camera(s->scene, c, x, s->y);
 			ft_normal(&ray.dir);
+			pthread_mutex_lock(&(s->lock));
 			s->sdl->pixels[(int)(s->y * L + x)] = rgb(filter(ft_vect(0, 0, 0), s->scene->filter));
 			if (ft_inter_obj(s->scene, &ray) != 0)
 			{
@@ -144,6 +120,7 @@ void		*ft_thread(void  *data)
 				ft_refrac(s->scene, &ray);
 				s->sdl->pixels[(int)(s->y * L + x)] = rgb(filter(ray.color, s->scene->filter));
 			}
+			pthread_mutex_unlock(&(s->lock));
 			x++;
 		}
 		s->y++;

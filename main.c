@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/24 04:47:51 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/25 02:58:23 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_sdl_loop(t_sdl *sdl, t_scene *scene)
 				ft_res(sdl, scene);
 			else if (key == SDLK_m)
 				ft_antialiasing(sdl);
+			else if (key == SDLK_c)
+				scene->celshading = (scene->celshading) ? 0 : 1;
 			else
 				ft_movecam(sdl, scene);
 		}
@@ -64,6 +66,7 @@ int		main2(t_sdl *sdl, t_scene *scene, char **av)
 		return (0);
 	ft_bzero(sdl->pixels, (L / scene->res) * (H / scene->res) * sizeof(Uint32));
 	scene->filter = 0;
+	scene->celshading = 0;
 	ft_scene(sdl, scene);
 	return (1);
 }
