@@ -27,22 +27,20 @@
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
 	</object>
-
-
-
-	<object name="damier">
+	<object name="plane">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
 		<origine>0 -30 0</origine>
 		<normal>0 1 0</normal>
-		<color>255 255 255</color>
+		<color>75 255 0</color>
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>0/100</refrac>
-		<pctrans>100/100</pctrans>
+		<pctrans>0/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
+		<vague>1</vague>
 	</object>
 	<object name="plane">
 		<rotation>0 0 0</rotation>
@@ -57,6 +55,7 @@
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
+		<vague>0</vague>
 	</object>
 	<object name="sphere">
 		<rotation>0 0 0</rotation>

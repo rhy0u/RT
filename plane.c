@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 17:23:15 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/03 00:39:07 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/25 07:11:14 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_plane(t_ray ray, t_obj *obj)
 		else
 			obj->normal_inter = ft_mul_vec_scal(obj->n, -1);
 		ft_normal(&obj->normal_inter);
+		obj->normal_inter.x += sin(obj->inter.x / 2) * obj->vague;
 	}
 	return (1);
 }

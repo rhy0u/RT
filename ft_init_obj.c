@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_obj.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 03:07:55 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/07 01:12:05 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/25 07:06:14 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ void		info_obj(char *str, t_obj *obj)
 			obj->reflec = get_radius(&str[i]) / 100;
 		else if (ft_strncmp("<refrac>", &str[i], 8) == 0)
 			obj->refrac = get_radius(&str[i]) / 100;
-		else if (ft_strncmp("<pctrans>", &str[i], 8) == 0)
+		else if (ft_strncmp("<pctrans>", &str[i], 9) == 0)
 			obj->pctrans = get_radius(&str[i]) / 100;
+		else if (ft_strncmp("<vague>", &str[i], 7) == 0)
+			obj->vague = get_radius(&str[i]);
 		i++;
 	}
 }

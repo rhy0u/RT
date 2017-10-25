@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/25 02:58:23 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/25 03:25:04 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_sdl_loop(t_sdl *sdl, t_scene *scene)
 			else if (key == SDLK_m)
 				ft_antialiasing(sdl);
 			else if (key == SDLK_c)
-				scene->celshading = (scene->celshading) ? 0 : 1;
+				ft_celshading(sdl, scene);
 			else
 				ft_movecam(sdl, scene);
 		}
@@ -61,12 +61,13 @@ int		main2(t_sdl *sdl, t_scene *scene, char **av)
 	}
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		return (0);
+	scene->res = 1;
+	scene->celshading = 0;
+	scene->filter = 0;
 	ft_get_scene(scene, fd);
 	if (!(sdl->pixels = (Uint32*)malloc(sizeof(sdl->pixels) * (L / scene->res) * (H / scene->res))))
 		return (0);
 	ft_bzero(sdl->pixels, (L / scene->res) * (H / scene->res) * sizeof(Uint32));
-	scene->filter = 0;
-	scene->celshading = 0;
 	ft_scene(sdl, scene);
 	return (1);
 }
@@ -97,7 +98,6 @@ int		main(int ac, char **av)
 	gtk_main_quit();
 	if (!main2(&sdl, &scene, &filename))
 		return (0);
-	scene.res = 1;
 	sdl.renderer = SDL_CreateRenderer(sdl.win, -1, 0);
 	sdl.texture = SDL_CreateTexture(sdl.renderer, SDL_PIXELFORMAT_ARGB8888,
 		SDL_TEXTUREACCESS_STATIC, L / scene.res, H / scene.res);

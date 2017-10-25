@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 17:23:15 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/21 02:24:40 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/25 03:31:56 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,16 @@ void	ft_changefilter(t_sdl *sdl, t_scene *scene)
 	if (scene->filter > 6)
 		scene->filter = 0;
 	ft_bzero(sdl->pixels, (L / scene->res) * (H / scene->res) * sizeof(Uint32));
+	ft_scene(sdl, scene);
+	SDL_UpdateTexture(sdl->texture, NULL, sdl->pixels, L * sizeof(Uint32));
+	SDL_RenderClear(sdl->renderer);
+	SDL_RenderCopy(sdl->renderer, sdl->texture, NULL, NULL);
+	SDL_RenderPresent(sdl->renderer);
+}
+
+void	ft_celshading(t_sdl *sdl, t_scene *scene)
+{
+	scene->celshading = (scene->celshading) ? 0 : 1;
 	ft_scene(sdl, scene);
 	SDL_UpdateTexture(sdl->texture, NULL, sdl->pixels, L * sizeof(Uint32));
 	SDL_RenderClear(sdl->renderer);
