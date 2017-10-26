@@ -6,24 +6,32 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 07:15:49 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/25 03:01:42 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/25 07:59:55 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-void	cel(float *a)
+void	cel(float *a, int cell)
 {
+	if (cell != 1)
+		return ;
 	if (*a <= -0.8)
 		*a = -0.8;
+	else if (*a <= -0.7)
+		*a = -0.7;
 	else if (*a <= -0.6)
 		*a = -0.6;
+	else if (*a <= -0.5)
+		*a = -0.5;
 	else if (*a <= -0.4)
 		*a = -0.4;
+	else if (*a <= -0.3)
+		*a = -0.3;
 	else
-		*a = -0.2;
+		*a = -0.1;
 }
 
-void	ft_cal_color_final(t_ray *ray, t_spot *l)
+void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell)
 {
 	float a;
 	t_xyz c;
@@ -37,8 +45,7 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l)
 			ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter)) * 2), l->dir);
 		if ((a = ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter))) < 0)
 		{
-			if (cell == 1)
-				cel(&a);
+			cel(&a, cell);
 			cd = ft_mul_vec_scal(ft_mul_vec_scal(l->color, -a), l->diffuse);
 			cs = ft_mul_vec_scal(l->color, pow(ft_dot(ft_mul_vec(r, ray->dir)),
 					100));
@@ -98,7 +105,7 @@ void	ft_light(t_scene *s, t_ray *ray)
 		l->light_to_obj_dist = ft_magnitude_vec(l->dir);
 		ft_normal(&l->dir);
 		if (!block(l, o, ray))
-			ft_cal_color_final(ray, l, scene->celshading);
+			ft_cal_color_final(ray, l, s->celshading);
 		l = l->next;
 	}
 }
