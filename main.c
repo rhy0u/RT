@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/25 03:25:04 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/26 23:19:57 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,26 +76,14 @@ int		main(int ac, char **av)
 {
 	t_sdl		sdl;
 	t_scene		scene;
-	GtkWidget 	*bouton_explorer;
-	GtkWidget 	*win;
-
+	GtkApplication	*app;
+	int				status;
 
 	if (!(filename = malloc(sizeof(char**))))
 		return(0);
-	gtk_init(&ac,&av);
-	win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_title(GTK_WINDOW(win),"GtkFileSelection");
-	gtk_window_set_default_size(GTK_WINDOW(win),320,200);
-	bouton_explorer=gtk_button_new_with_mnemonic("_Explorer...");
-	gtk_container_add(GTK_CONTAINER(win),bouton_explorer);
-
-	g_signal_connect(G_OBJECT(win),"destroy",G_CALLBACK(quitter), NULL);
-	g_signal_connect(G_OBJECT(bouton_explorer), "clicked", G_CALLBACK(creer_file_selection), win);
-
-	gtk_widget_show_all(win);
-	gtk_main();
-	gtk_widget_destroy((GtkWidget *)win);
-	gtk_main_quit();
+	app = gtk_application_new ("org.gtk.example", G_APPLICATION_FLAGS_NONE);
+	g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
+	status = g_application_run (G_APPLICATION (app), ac, av);
 	if (!main2(&sdl, &scene, &filename))
 		return (0);
 	sdl.renderer = SDL_CreateRenderer(sdl.win, -1, 0);
@@ -110,6 +98,7 @@ int		main(int ac, char **av)
 	SDL_DestroyTexture(sdl.texture);
 	SDL_DestroyRenderer(sdl.renderer);
 	free_all(&scene, &sdl);
+	g_object_unref(app);
 	SDL_Quit();
 	return (0);
 }

@@ -35,8 +35,8 @@
 		<color>75 255 0</color>
 		<specular>0</specular>
 		<reflec>0/100</reflec>
-		<refrac>0/100</refrac>
-		<pctrans>0/100</pctrans>
+		<refrac>100/100</refrac>
+		<pctrans>50/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>

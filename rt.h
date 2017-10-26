@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/25 07:09:58 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/26 22:09:29 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ typedef struct		s_cam
 	float			height;
 	float			xindent;
 	float			yindent;
+	Uint8			mvt;
 }					t_cam;
 
 typedef struct		s_spot
@@ -167,9 +168,10 @@ void				ft_changefilter(t_sdl *sdl, t_scene *t_sdl);
 t_xyz				filter(t_xyz color, int filter);
 void 				ft_cut(t_ray ray, t_obj *s);
 t_xyz 				ft_damcolor(t_obj *s);
-void				recuperer_chemin(GtkWidget *bouton, GtkWidget *file_selection);
-void				quitter(GtkWidget* widget);
-void				creer_file_selection(GtkWindow *win);
+void 				activate (GtkApplication* app, gpointer user_data);
+// void				recuperer_chemin(GtkWidget *bouton, GtkWidget *file_selection);
+// void				quitter(GtkWidget* widget);
+// void				creer_file_selection(GtkWindow *win);
 Uint32				rgb(t_xyz color);
 int					ft_sphere(t_ray r, t_obj *s);
 int					ft_cylindre(t_ray r, t_obj *c);
