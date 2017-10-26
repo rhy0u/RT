@@ -30,7 +30,7 @@
 
 
 
-	<object name="damier">
+	<object name="plane">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
 		<origine>0 -30 0</origine>
@@ -39,7 +39,7 @@
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>0/100</refrac>
-		<pctrans>100/100</pctrans>
+		<pctrans>50/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
@@ -53,7 +53,7 @@
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>0/100</refrac>
-		<pctrans>100/100</pctrans>
+		<pctrans>0/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
@@ -68,8 +68,7 @@
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>100/100</refrac>
-<<<<<<< HEAD
-		<pctrans>90/100</pctrans>
+		<pctrans>50/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>
@@ -78,17 +77,14 @@
 	<object name="sphere">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 0 20</origine>
+		<origine>-20 0 0</origine>
 		<normal>0 1 0</normal>
-		<radius>5</radius>
+		<radius>10</radius>
 		<color>210 160 255</color>
 		<specular>0</specular>
 		<reflec>0/100</reflec>
-		<refrac>00/100</refrac>
-		<pctrans>0/100</pctrans>
-=======
-		<pctrans>50</pctrans>
->>>>>>> origin
+		<refrac>100/100</refrac>
+		<pctrans>50/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>

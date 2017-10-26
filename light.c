@@ -39,7 +39,7 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l)
 		ray->color = ray->obj->color;
 }
 
-int		block(t_spot *l, t_obj *o, t_ray *ray)
+int		block(t_spot *l, t_obj *o, t_ray *ray, float a)
 {
 	t_ray	rl;
 	int		block;
@@ -64,8 +64,12 @@ int		block(t_spot *l, t_obj *o, t_ray *ray)
 				if (l->light_to_inter_dist < l->light_to_obj_dist)
 					block = 1;
 				if (o->refrac >= 1)
-					ray->color = ft_mul_vec_scal(ray->color,  + ray->obj->pctrans);
-
+				{
+					ft_cal_color_final(ray, l);
+					ray->color = ft_add_vec(ft_mul_vec_scal(ft_sub_vec(
+						ray->color, ft_mul_vec_scal(ray->obj->color, a)),
+						o->pctrans), ft_mul_vec_scal(ray->obj->color, a));
+				}
 			}
 		}
 		o = o->next;
@@ -87,7 +91,7 @@ void	ft_light(t_scene *s, t_ray *ray)
 		l->dir = ft_sub_vec(ray->obj->inter, l->pos);
 		l->light_to_obj_dist = ft_magnitude_vec(l->dir);
 		ft_normal(&l->dir);
-		if (!block(l, o, ray))
+		if (!block(l, o, ray, s->ambiante))
 			ft_cal_color_final(ray, l);
 		l = l->next;
 	}
