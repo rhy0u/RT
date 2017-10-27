@@ -16,7 +16,7 @@ void		ft_normal(t_xyz *vec)
 {
 	float norme;
 
-	norme = 1 / ft_magnitude_vec(*vec);
+	norme = 1 / ft_mag_vec(*vec);
 	if (norme)
 	{
 		vec->x *= norme;

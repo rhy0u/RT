@@ -208,7 +208,7 @@ t_xyz				ft_mul_vec(t_xyz a, t_xyz b);
 t_xyz				ft_sqrt_vec(t_xyz a);
 t_xyz				ft_sq_vec(t_xyz a);
 t_xyz				ft_cross_vec(t_xyz a, t_xyz b);
-float				ft_magnitude_vec(t_xyz a);
+float				ft_mag_vec(t_xyz a);
 float				ft_prod_scal(t_xyz a, t_xyz b);
 t_xyz				ft_vect(float x, float y, float z);
 int					ft_inter_obj(t_scene *s, t_ray *ray);

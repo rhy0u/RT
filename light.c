@@ -62,7 +62,7 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell)
 		ray->color = ray->obj->color;
 }
 
-int		block(t_spot *l, t_obj *o, t_ray *ray)
+int		block(t_spot *l, t_obj *o, t_ray *ray, t_scene *s)
 {
 	t_ray	rl;
 	int		block;
@@ -72,20 +72,20 @@ int		block(t_spot *l, t_obj *o, t_ray *ray)
 	rl.dir = l->dir;
 	while (o)
 	{
-		if (o->refrac >= 1 && o->name == PLANE)
-			o = o->next;
-		if (!o)
-			return 0;
-		if (o->name == 6)
-			o = o->next;
-		else if (o != ray->obj)
+		if (o != ray->obj && o->name != 6)
 		{
 			if (ft_get_inter(&rl, o))
 			{
-				l->light_to_inter_dist = ft_magnitude_vec(ft_sub_vec(o->inter,
-							l->pos));
+				l->light_to_inter_dist = ft_mag_vec(ft_sub_vec(o->inter, l->pos));
 				if (l->light_to_inter_dist < l->light_to_obj_dist)
+				{
+					if (!block)
+						ft_cal_color_final(ray, l, s->celshading);
 					block = 1;
+					ray->color = ft_sub_vec(ray->color, ft_mul_vec_scal(
+						ft_sub_vec(ray->color, ft_mul_vec_scal(ray->obj->color,
+						s->ambiante)), 1 - o->pctrans));
+				}
 			}
 		}
 		o = o->next;
@@ -105,9 +105,9 @@ void	ft_light(t_scene *s, t_ray *ray)
 	{
 		o = s->obj;
 		l->dir = ft_sub_vec(ray->obj->inter, l->pos);
-		l->light_to_obj_dist = ft_magnitude_vec(l->dir);
+		l->light_to_obj_dist = ft_mag_vec(l->dir);
 		ft_normal(&l->dir);
-		if (!block(l, o, ray))
+		if (!block(l, o, ray, s))
 			ft_cal_color_final(ray, l, s->celshading);
 		l = l->next;
 	}

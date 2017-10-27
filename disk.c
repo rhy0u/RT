@@ -20,7 +20,7 @@ int		ft_disk(t_ray ray, t_obj *obj)
 	if (ft_plane(ray, obj))
 	{
 		d = ft_add_vec(ray.eye, ft_mul_vec_scal(ray.dir, obj->t));
-		p = ft_magnitude_vec(ft_sub_vec(obj->pos, d));
+		p = ft_mag_vec(ft_sub_vec(obj->pos, d));
 		if (p > obj->radius)
 		{
 			obj->t = LIM;

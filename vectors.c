@@ -67,7 +67,7 @@ t_xyz		ft_vect(float x, float y, float z)
 	return (res);
 }
 
-float		ft_magnitude_vec(t_xyz a)
+float		ft_mag_vec(t_xyz a)
 {
 	return (sqrt(a.x * a.x + a.y * a.y + a.z * a.z));
 }

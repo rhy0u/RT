@@ -3,21 +3,21 @@
 	<camera>
 		<origine>0 20 -200</origine>
 		<look_at>0 0 0</look_at>
-		<ambiante>30</ambiante>
+		<ambiante>20</ambiante>
 	</camera>
 
 
 	<spot>
-		<origine>0 50 0</origine>
+		<origine>-20 50 0</origine>
 		<color>255 255 255</color>
-		<diffuse>100</diffuse>
+		<diffuse>50</diffuse>
 	</spot>
 	<object name="spot">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
-		<origine>0 50 0</origine>
+		<origine>-20 50 0</origine>
 		<normal>0 1 0</normal>
-		<radius>6</radius>
+		<radius>3</radius>
 		<color>255 255 255</color>
 		<reflec>0/100</reflec>
 		<refrac>0/100</refrac>
@@ -27,6 +27,9 @@
 		<cut>0 0 0</cut>
 		<cutnorm>0 1 0</cutnorm>>
 	</object>
+
+
+
 	<object name="plane">
 		<rotation>0 0 0</rotation>
 		<translation>0 0 0</translation>
@@ -51,7 +54,7 @@
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>0/100</refrac>
-		<pctrans>100/100</pctrans>
+		<pctrans>0/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
@@ -67,7 +70,39 @@
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>100/100</refrac>
-		<pctrans>50</pctrans>
+		<pctrans>50/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cutisreal>0</cutisreal>
+		<cut>0 10 0</cut>
+		<cutnorm>1 -2 0</cutnorm>
+	</object>
+	<object name="sphere">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>-20 0 0</origine>
+		<normal>0 1 0</normal>
+		<radius>10</radius>
+		<color>210 0 255</color>
+		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
+		<pctrans>50/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cutisreal>0</cutisreal>
+		<cut>0 10 0</cut>
+		<cutnorm>1 -2 0</cutnorm>
+	</object>
+	<object name="sphere">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>-20 20 0</origine>
+		<normal>0 1 0</normal>
+		<radius>10</radius>
+		<color>0 0 255</color>
+		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
+		<pctrans>50/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>
