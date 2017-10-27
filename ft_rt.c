@@ -52,7 +52,6 @@ void 		ft_refrac(t_scene *scene, t_ray *ray, int index)
 	if(ray->obj->refrac >= 1)
 	{
 		ref.objref = ray->obj;
-		ref.dir = ray->dir;
 		ref.eye = ray->eye;
 		p = 1.0 / ray->obj->refrac;
 		ref.dir = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
@@ -62,6 +61,8 @@ void 		ft_refrac(t_scene *scene, t_ray *ray, int index)
 			ray->dir, -1))) * ft_dot(ft_mul_vec(ray->obj->normal_inter,
 			ft_mul_vec_scal(ray->dir, -1))))))), ft_mul_vec_scal(
 			ft_mul_vec_scal(ray->dir, -1), p));
+		if (ray->obj->name == PLANE)
+			ref.dir = ray->dir;
 		if (ft_inter_obj(scene, &ref))
 		{
 			if (ref.obj->name == SPOT)

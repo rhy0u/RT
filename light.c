@@ -49,26 +49,22 @@ int		block(t_spot *l, t_obj *o, t_ray *ray, float a)
 	rl.dir = l->dir;
 	while (o)
 	{
-		if (o->refrac >= 1 && o->name == PLANE)
-			o = o->next;
-		if (!o)
-			return 0;
-		if (o->name == 6)
-			o = o->next;
-		else if (o != ray->obj)
+		// if (o->name == 6)
+		// 	o = o->next;
+		if (o != ray->obj && o->name != 6)
 		{
 			if (ft_get_inter(&rl, o))
 			{
 				l->light_to_inter_dist = ft_magnitude_vec(ft_sub_vec(o->inter,
 							l->pos));
 				if (l->light_to_inter_dist < l->light_to_obj_dist)
-					block = 1;
-				if (o->refrac >= 1)
 				{
-					ft_cal_color_final(ray, l);
-					ray->color = ft_add_vec(ft_mul_vec_scal(ft_sub_vec(
-						ray->color, ft_mul_vec_scal(ray->obj->color, a)),
-						o->pctrans), ft_mul_vec_scal(ray->obj->color, a));
+					if (!block)
+						ft_cal_color_final(ray, l);
+					block = 1;
+					ray->color = ft_sub_vec(ray->color, ft_mul_vec_scal(
+						ft_sub_vec(ray->color, ft_mul_vec_scal(ray->obj->color,
+						a)), 1 - o->pctrans));
 				}
 			}
 		}

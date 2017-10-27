@@ -38,7 +38,7 @@
 		<color>255 255 255</color>
 		<specular>0</specular>
 		<reflec>0/100</reflec>
-		<refrac>0/100</refrac>
+		<refrac>100/100</refrac>
 		<pctrans>50/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
@@ -80,7 +80,23 @@
 		<origine>-20 0 0</origine>
 		<normal>0 1 0</normal>
 		<radius>10</radius>
-		<color>210 160 255</color>
+		<color>210 0 255</color>
+		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
+		<pctrans>50/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cutisreal>0</cutisreal>
+		<cut>0 10 0</cut>
+		<cutnorm>1 -2 0</cutnorm>
+	</object>
+	<object name="sphere">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>-20 20 0</origine>
+		<normal>0 1 0</normal>
+		<radius>10</radius>
+		<color>0 0 255</color>
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>100/100</refrac>
