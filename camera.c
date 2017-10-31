@@ -23,7 +23,7 @@ void		ft_cal_vec_cam(t_scene *s, t_cam *c)
 	{
 		c->right_vec = ft_cross_vec(c->vec_dir, c->up_vec);
 		ft_normal(&c->right_vec);
-		c->up_vec = ft_mul_vec_scal(ft_cross_vec(c->right_vec, c->vec_dir), -1);
+		c->up_vec = ft_scal(ft_cross_vec(c->right_vec, c->vec_dir), -1);
 	}
 	else
 	{
@@ -39,12 +39,12 @@ void		ft_cal_vec_cam(t_scene *s, t_cam *c)
 t_xyz		ft_camera(t_scene *s, t_cam c, float x, float y)
 {
 	c.view_plane_up_left = ft_sub_vec(ft_add_vec(s->cam.pos, ft_add_vec(
-				ft_mul_vec_scal(c.vec_dir, c.ratio), ft_mul_vec_scal(
-				c.up_vec, c.height / 2.0))), ft_mul_vec_scal(c.right_vec,
+				ft_scal(c.vec_dir, c.ratio), ft_scal(
+				c.up_vec, c.height / 2.0))), ft_scal(c.right_vec,
 				c.width / 2.0));
 	c.xindent = c.width / (float)L * s->res;
 	c.yindent = c.height / (float)H * s->res;
 	return (ft_sub_vec(ft_add_vec(c.view_plane_up_left, ft_sub_vec(
-					ft_mul_vec_scal(c.right_vec, c.xindent * x),
-					ft_mul_vec_scal(c.up_vec, c.yindent * y))), s->cam.pos));
+					ft_scal(c.right_vec, c.xindent * x),
+					ft_scal(c.up_vec, c.yindent * y))), s->cam.pos));
 }

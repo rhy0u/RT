@@ -53,14 +53,14 @@ int					ft_cone(t_ray ray, t_obj *s)
 		return (0);
 	}
 	k = tan(s->radius / 2.0);
-	s->inter = ft_add_vec(r.eye, ft_mul_vec_scal(r.dir, s->t));
+	s->inter = ft_add_vec(r.eye, ft_scal(r.dir, s->t));
 	cp = ft_sub_vec(s->inter, s->pos);
 	m = ft_mul_vec(cp, s->v);
-	s->normal_inter = ft_sub_vec(cp, ft_mul_vec_scal(ft_mul_vec(s->v, m),
+	s->normal_inter = ft_sub_vec(cp, ft_scal(ft_mul_vec(s->v, m),
 				(1 + k * k)));
 	ft_normal(&s->normal_inter);
 	s->normal_inter = rot_all_inv(s->normal_inter, s->rot.x, s->rot.y,
 			s->rot.z);
-	s->inter = ft_add_vec(ray.eye, ft_mul_vec_scal(ray.dir, s->t));
+	s->inter = ft_add_vec(ray.eye, ft_scal(ray.dir, s->t));
 	return (1);
 }

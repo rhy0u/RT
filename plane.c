@@ -27,11 +27,11 @@ int		ft_plane(t_ray ray, t_obj *obj)
 	}
 	else
 	{
-		obj->inter = ft_add_vec(ray.eye, ft_mul_vec_scal(ray.dir, obj->t));
+		obj->inter = ft_add_vec(ray.eye, ft_scal(ray.dir, obj->t));
 		if (ft_dot(den))
 			obj->normal_inter = obj->n;
 		else
-			obj->normal_inter = ft_mul_vec_scal(obj->n, -1);
+			obj->normal_inter = ft_scal(obj->n, -1);
 		ft_normal(&obj->normal_inter);
 		obj->normal_inter.x += sin(obj->inter.x / 2) * obj->vague;
 	}

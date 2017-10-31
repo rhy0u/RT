@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tore.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 11:12:53 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/13 11:58:56 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/31 03:36:59 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ int			ft_tore(t_ray ray, t_obj *s)
 		return (0);
 	}
 	s->v = ft_vect(1, 0, 0);
-	s->inter = ft_add_vec(r.eye, ft_mul_vec_scal(r.dir, s->t));
-	s->normal_inter = ft_mul_vec_scal(ft_sub_vec(ft_sub_vec(s->inter,
+	s->inter = ft_add_vec(r.eye, ft_scal(r.dir, s->t));
+	s->normal_inter = ft_scal(ft_sub_vec(ft_sub_vec(s->inter,
 		s->pos), ft_mul_vec(ft_mul_vec(ft_sub_vec(s->inter, s->pos),
 		s->v), s->v)), 1 / s->radius);
 	ft_normal(&s->normal_inter);
 	s->normal_inter = rot_all_inv(s->normal_inter, s->rot.x, s->rot.y,
 			s->rot.z);
-	s->inter = ft_add_vec(ray.eye, ft_mul_vec_scal(ray.dir, s->t));
+	s->inter = ft_add_vec(ray.eye, ft_scal(ray.dir, s->t));
 	return (1);
+}

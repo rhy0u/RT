@@ -6,13 +6,36 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/18 02:28:58 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/10/21 04:18:08 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/31 01:38:09 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_xyz	filter(t_xyz color, int filter)
+static t_xyz	filter_bis(t_xyz color, int filter, t_xyz res)
+{
+	if (filter == 4)
+	{
+		res.x = color.x;
+		res.y = 0;
+		res.z = 0;
+	}
+	else if (filter == 5)
+	{
+		res.x = 0;
+		res.y = color.y;
+		res.z = 0;
+	}
+	else if (filter == 6)
+	{
+		res.x = 0;
+		res.y = color.y;
+		res.z = color.z;
+	}
+	return (res);
+}
+
+t_xyz			filter(t_xyz color, int filter)
 {
 	t_xyz	res;
 
@@ -35,23 +58,7 @@ t_xyz	filter(t_xyz color, int filter)
 		res.y = color.x * 0.349 + color.y * 0.686 + color.z * 0.168;
 		res.z = color.x * 0.272 + color.y * 0.534 + color.z * 0.131;
 	}
-	else if (filter == 4)
-	{
-		res.x = color.x;
-		res.y = 0;
-		res.z = 0;
-	}
-	else if (filter == 5)
-	{
-		res.x = 0;
-		res.y = color.y;
-		res.z = 0;
-	}
-	else if (filter == 6)
-	{
-		res.x = 0;
-		res.y = color.y;
-		res.z = color.z;
-	}
+	else
+		res = filter_bis(color, filter, res);
 	return (res);
 }

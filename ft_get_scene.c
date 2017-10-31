@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_scene.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 13:22:48 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/03 02:42:32 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/31 01:44:05 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,24 @@ void		get_cam(t_scene *s, char *str)
 	}
 }
 
+static void	get_objets_bis(t_scene *scene, char *str, int i)
+{
+	if (ft_strncmp("name=\"sphere\">", &str[i], 14) == 0)
+		list_push_back(&scene->obj, list_sphere(&str[i]));
+	else if (ft_strncmp("name=\"cone\">", &str[i], 12) == 0)
+		list_push_back(&scene->obj, list_cone(&str[i]));
+	else if (ft_strncmp("name=\"cylindre\">", &str[i], 16) == 0)
+		list_push_back(&scene->obj, list_cyl(&str[i]));
+	else if (ft_strncmp("name=\"plane\">", &str[i], 13) == 0)
+		list_push_back(&scene->obj, list_plane(&str[i]));
+	else if (ft_strncmp("name=\"disk\">", &str[i], 12) == 0)
+		list_push_back(&scene->obj, list_disk(&str[i]));
+	else if (ft_strncmp("name=\"spot\">", &str[i], 12) == 0)
+		list_push_back(&scene->obj, list_spot(&str[i]));
+	else if (ft_strncmp("name=\"damier\">", &str[i], 14) == 0)
+		list_push_back(&scene->obj, list_damier(&str[i]));
+}
+
 void		get_objets(t_scene *scene, char *str)
 {
 	int i;
@@ -41,20 +59,7 @@ void		get_objets(t_scene *scene, char *str)
 		{
 			while (str[i] && str[i] != '>')
 			{
-				if (ft_strncmp("name=\"sphere\">", &str[i], 14) == 0)
-					list_push_back(&scene->obj, list_sphere(&str[i]));
-				else if (ft_strncmp("name=\"cone\">", &str[i], 12) == 0)
-					list_push_back(&scene->obj, list_cone(&str[i]));
-				else if (ft_strncmp("name=\"cylindre\">", &str[i], 16) == 0)
-					list_push_back(&scene->obj, list_cyl(&str[i]));
-				else if (ft_strncmp("name=\"plane\">", &str[i], 13) == 0)
-					list_push_back(&scene->obj, list_plane(&str[i]));
-				else if (ft_strncmp("name=\"disk\">", &str[i], 12) == 0)
-					list_push_back(&scene->obj, list_disk(&str[i]));
-				else if (ft_strncmp("name=\"spot\">", &str[i], 12) == 0)
-					list_push_back(&scene->obj, list_spot(&str[i]));
-				else if (ft_strncmp("name=\"damier\">", &str[i], 14) == 0)
-					list_push_back(&scene->obj, list_damier(&str[i]));
+				get_objets_bis(scene, str, i);
 				i++;
 			}
 		}

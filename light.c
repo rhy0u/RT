@@ -6,13 +6,13 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 07:15:49 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/25 03:51:11 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/31 02:51:03 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void 	cel(float *a, int cell)
+void	cel(float *a, int cell)
 {
 	if (cell != 1)
 		return ;
@@ -42,15 +42,16 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell)
 	t_xyz cs;
 	t_xyz r;
 
-	if (ft_dot(ft_mul_vec(ray->dir, ray->obj->normal_inter)) < 0 || ray->obj->refrac >= 1)
+	if (ft_dot(ft_mul_vec(ray->dir, ray->obj->normal_inter)) < 0
+	|| ray->obj->refrac >= 1)
 	{
-		r = ft_sub_vec(ft_mul_vec_scal(ray->obj->normal_inter,
+		r = ft_sub_vec(ft_scal(ray->obj->normal_inter,
 			ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter)) * 2), l->dir);
 		if ((a = ft_dot(ft_mul_vec(l->dir, ray->obj->normal_inter))) < 0)
 		{
 			cel(&a, cell);
-			cd = ft_mul_vec_scal(ft_mul_vec_scal(l->color, -a), l->diffuse);
-			cs = ft_mul_vec_scal(l->color, pow(ft_dot(ft_mul_vec(r, ray->dir)),
+			cd = ft_scal(ft_scal(l->color, -a), l->diffuse);
+			cs = ft_scal(l->color, pow(ft_dot(ft_mul_vec(r, ray->dir)),
 					100));
 			if (ray->obj->specular == 0)
 				cs = ft_vect(0, 0, 0);
@@ -60,6 +61,13 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell)
 	}
 	if (ray->obj->name == SPOT)
 		ray->color = ray->obj->color;
+}
+
+void	calc(t_ray *ray, t_obj *o, t_scene *s)
+{
+	ray->color = ft_sub_vec(ray->color, ft_scal(
+		ft_sub_vec(ray->color, ft_scal(ray->obj->color,
+		s->ambiante)), 1 - o->pctrans));
 }
 
 int		block(t_spot *l, t_obj *o, t_ray *ray, t_scene *s)
@@ -76,15 +84,13 @@ int		block(t_spot *l, t_obj *o, t_ray *ray, t_scene *s)
 		{
 			if (ft_get_inter(&rl, o))
 			{
-				l->light_to_inter_dist = ft_mag_vec(ft_sub_vec(o->inter, l->pos));
-				if (l->light_to_inter_dist < l->light_to_obj_dist)
+				l->l_to_inter_dist = ft_mag_vec(ft_sub_vec(o->inter, l->pos));
+				if (l->l_to_inter_dist < l->light_to_obj_dist)
 				{
 					if (!block)
 						ft_cal_color_final(ray, l, s->celshading);
 					block = 1;
-					ray->color = ft_sub_vec(ray->color, ft_mul_vec_scal(
-						ft_sub_vec(ray->color, ft_mul_vec_scal(ray->obj->color,
-						s->ambiante)), 1 - o->pctrans));
+					calc(ray, o, s);
 				}
 			}
 		}

@@ -35,7 +35,7 @@ t_xyz		ft_sub_vec(t_xyz a, t_xyz b)
 	return (res);
 }
 
-t_xyz		ft_mul_vec_scal(t_xyz a, float b)
+t_xyz		ft_scal(t_xyz a, float b)
 {
 	t_xyz	res;
 

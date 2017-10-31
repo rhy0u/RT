@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 23:16:10 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/05 23:45:26 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/31 03:32:03 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ int			ft_sphere(t_ray r, t_obj *s)
 	}
 	if (s->cutonoff == 1)
 		ft_cut(r, s);
-	s->inter = ft_add_vec(r.eye, ft_mul_vec_scal(r.dir, s->t));
+	s->inter = ft_add_vec(r.eye, ft_scal(r.dir, s->t));
 	if ((s->cutonoff == 1) && (s->tcut > s->t1 && s->tcut < s->t2))
-		s->normal_inter = ft_mul_vec_scal(s->cutnorm, -1);
+		s->normal_inter = ft_scal(s->cutnorm, -1);
 	else
-		s->normal_inter = ft_mul_vec_scal(ft_sub_vec(s->inter, s->pos),
-			1 / s->radius);
+		s->normal_inter = ft_scal(ft_sub_vec(s->inter, s->pos), 1 / s->radius);
 	ft_normal(&s->normal_inter);
 	return (1);
 }

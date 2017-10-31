@@ -6,12 +6,12 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/26 22:09:29 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/10/31 03:31:44 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RTV1_H
-# define RTV1_H
+#ifndef RT_H
+# define RT_H
 # include <gtk/gtk.h>
 # include <SDL2/SDL.h>
 # include <stdlib.h>
@@ -34,7 +34,7 @@
 # define SPOT 6
 # define DAM 7
 
-static char *filename;
+static char *g_filename;
 
 typedef struct		s_sdl
 {
@@ -133,7 +133,7 @@ typedef struct		s_spot
 	float			diffuse;
 	float			specular;
 	float			light_to_obj_dist;
-	float			light_to_inter_dist;
+	float			l_to_inter_dist;
 	t_xyz			i;
 	struct s_spot	*next;
 }					t_spot;
@@ -160,18 +160,15 @@ typedef struct		s_sdlpp
 	int				limx;
 }					t_sdlpp;
 
-void 				ft_celshading(t_sdl *sdl, t_scene *scene);
-void				*ft_thread(void  *data);
+void				ft_celshading(t_sdl *sdl, t_scene *scene);
+void				*ft_thread(void *data);
 void				ft_antialiasing(t_sdl *sdl);
 void				ft_res(t_sdl *sdl, t_scene *scene);
-void				ft_changefilter(t_sdl *sdl, t_scene *t_sdl);
+void				ft_changefilter(t_sdl *sdl, t_scene *scene);
 t_xyz				filter(t_xyz color, int filter);
-void 				ft_cut(t_ray ray, t_obj *s);
-t_xyz 				ft_damcolor(t_obj *s);
-void 				activate (GtkApplication* app, gpointer user_data);
-// void				recuperer_chemin(GtkWidget *bouton, GtkWidget *file_selection);
-// void				quitter(GtkWidget* widget);
-// void				creer_file_selection(GtkWindow *win);
+void				ft_cut(t_ray ray, t_obj *s);
+t_xyz				ft_damcolor(t_obj *s);
+void				activate (GtkApplication *app, gpointer user_data);
 Uint32				rgb(t_xyz color);
 int					ft_sphere(t_ray r, t_obj *s);
 int					ft_cylindre(t_ray r, t_obj *c);
@@ -201,7 +198,7 @@ void				ft_cal_vec_cam(t_scene *s, t_cam *c);
 void				ft_normal(t_xyz *vec);
 float				ft_dot(t_xyz a);
 t_xyz				ft_sub_vec(t_xyz a, t_xyz b);
-t_xyz				ft_mul_vec_scal(t_xyz a, float b);
+t_xyz				ft_scal(t_xyz a, float b);
 t_xyz				ft_div_vec(t_xyz a, t_xyz b);
 t_xyz				ft_add_vec(t_xyz a, t_xyz b);
 t_xyz				ft_mul_vec(t_xyz a, t_xyz b);
@@ -227,9 +224,10 @@ t_obj				*free_obj(t_obj **obj);
 t_spot				*free_spot(t_spot **spot);
 void				free_all(t_scene *scene, t_sdl *sdl);
 t_xyz				get_pos(char *str, t_xyz trans);
-void 				ft_save(t_sdl *sdl, t_scene *scene);
-void 				ft_movecam(t_sdl *sdl, t_scene *scene);
-void 				ft_reflec(t_scene *scene, t_ray *ray, int index);
-void 				ft_reflec_bis(t_scene *scene, t_ray *ray, t_ray *ref, int index);
-
+void				ft_save(t_sdl *sdl, t_scene *scene);
+void				ft_movecam(t_sdl *sdl, t_scene *scene);
+void				ft_reflec(t_scene *scene, t_ray *ray, int index);
+void				ft_reflec_bis(t_scene *scene, t_ray *ray, t_ray *ref,
+	int index);
+void				info_obj(char *str, t_obj *obj);
 #endif

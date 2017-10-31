@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inter_obj.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 19:57:26 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/14 21:19:07 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/10/31 02:42:48 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int			ft_inter_obj(t_scene *s, t_ray *ray)
 	ray->obj = new_list();
 	while (tmp)
 	{
-
 		if (tmp != ray->objref)
 		{
 			ft_get_inter(ray, tmp);
@@ -55,7 +54,7 @@ int			ft_inter_obj(t_scene *s, t_ray *ray)
 				if (tmp->name == SPOT)
 					ray->color = tmp->color;
 				else
-					ray->color = ft_mul_vec_scal(tmp->color, s->ambiante);
+					ray->color = ft_scal(tmp->color, s->ambiante);
 				ray->obj = tmp;
 			}
 		}
