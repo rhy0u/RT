@@ -17,7 +17,8 @@ void	ft_thread1(t_sdl *sdl, t_scene *scene)
 	t_sdlpp		*s;
 	pthread_t	thread;
 
-	s = (t_sdlpp *)malloc(sizeof(t_sdlpp));
+	if (!(s = (t_sdlpp *)malloc(sizeof(t_sdlpp))))
+		return ;
 	s->lock = (pthread_mutex_t)PTHREAD_MUTEX_INITIALIZER;
 	s->y = 0;
 	s->x = 0;
@@ -34,7 +35,8 @@ void	ft_thread2(t_sdl *sdl, t_scene *scene)
 	t_sdlpp		*s;
 	pthread_t	thread;
 
-	s = (t_sdlpp *)malloc(sizeof(t_sdlpp));
+	if (!(s = (t_sdlpp *)malloc(sizeof(t_sdlpp))))
+		return ;
 	s->lock = (pthread_mutex_t)PTHREAD_MUTEX_INITIALIZER;
 	s->x = 0;
 	s->y = 0;
@@ -51,7 +53,8 @@ void	ft_thread3(t_sdl *sdl, t_scene *scene)
 	t_sdlpp		*s;
 	pthread_t	thread;
 
-	s = (t_sdlpp *)malloc(sizeof(t_sdlpp));
+	if (!(s = (t_sdlpp *)malloc(sizeof(t_sdlpp))))
+		return ;
 	s->lock = (pthread_mutex_t)PTHREAD_MUTEX_INITIALIZER;
 	s->y = H / (scene->res * 2.0);
 	s->x = 0;
@@ -68,7 +71,8 @@ void	ft_thread4(t_sdl *sdl, t_scene *scene)
 	t_sdlpp		*s;
 	pthread_t	thread;
 
-	s = (t_sdlpp *)malloc(sizeof(t_sdlpp));
+	if (!(s = (t_sdlpp *)malloc(sizeof(t_sdlpp))))
+		return ;
 	s->lock = (pthread_mutex_t)PTHREAD_MUTEX_INITIALIZER;
 	s->y = H / (scene->res * 2.0);
 	s->x = L / (scene->res * 2.0);

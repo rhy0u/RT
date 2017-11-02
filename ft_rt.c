@@ -16,7 +16,7 @@ void		ft_reflec(t_scene *scene, t_ray *ray, int index)
 {
 	t_ray ref;
 
-	if (ray->obj->refrac >= 1 || index > 2)
+	if (index > 2)
 		return ;
 	if (ray->obj->reflec != 0)
 	{
@@ -37,6 +37,8 @@ void		ft_reflec(t_scene *scene, t_ray *ray, int index)
 					ft_scal(ref.color, ray->obj->reflec)), 0.5);
 			}
 		}
+		else
+			ray->color = ft_scal(ft_add_vec(ray->color, ft_vect(0, 0, 0)), 0.5);
 	}
 }
 
@@ -55,6 +57,8 @@ static void	ft_refrac_bis(t_scene *scene, t_ray *ray, t_ray ref)
 				ft_scal(ref.color, ray->obj->pctrans)), 0.5);
 		}
 	}
+	else
+		ray->color = ft_scal(ft_add_vec(ray->color, ft_vect(0, 0, 0)), 0.5);
 }
 
 void		ft_refrac(t_scene *scene, t_ray *ray, int index)

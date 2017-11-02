@@ -43,7 +43,7 @@
 		<cutonoff>0</cutonoff>
 		<cut>-20 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
-		<vague>1</vague>
+		<vague>0</vague>
 	</object>
 	<object name="plane">
 		<rotation>0 0 0</rotation>
@@ -70,7 +70,7 @@
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>100/100</refrac>
-		<pctrans>50/100</pctrans>
+		<pctrans>80/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>
@@ -86,7 +86,7 @@
 		<specular>0</specular>
 		<reflec>0/100</reflec>
 		<refrac>100/100</refrac>
-		<pctrans>50/100</pctrans>
+		<pctrans>80/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>
@@ -100,9 +100,9 @@
 		<radius>10</radius>
 		<color>0 0 255</color>
 		<specular>0</specular>
-		<reflec>100/100</reflec>
-		<refrac>0/100</refrac>
-		<pctrans>0/100</pctrans>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
+		<pctrans>80/100</pctrans>
 		<cutonoff>0</cutonoff>
 		<cutisreal>0</cutisreal>
 		<cut>0 10 0</cut>

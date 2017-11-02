@@ -34,7 +34,7 @@ void	cel(float *a, int cell)
 		*a = -0.1;
 }
 
-void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell)
+void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell, float block)
 {
 	float a;
 	t_xyz c;
@@ -55,7 +55,7 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell)
 					100));
 			if (ray->obj->specular == 0)
 				cs = ft_vect(0, 0, 0);
-			c = ft_add_vec(cd, cs);
+			c = ft_scal(ft_add_vec(cd, cs), block);
 			ray->color = ft_add_vec(ray->color, c);
 		}
 	}
@@ -63,19 +63,12 @@ void	ft_cal_color_final(t_ray *ray, t_spot *l, int cell)
 		ray->color = ray->obj->color;
 }
 
-void	calc(t_ray *ray, t_obj *o, t_scene *s)
-{
-	ray->color = ft_sub_vec(ray->color, ft_scal(
-		ft_sub_vec(ray->color, ft_scal(ray->obj->color,
-		s->ambiante)), 1 - o->pctrans));
-}
-
-int		block(t_spot *l, t_obj *o, t_ray *ray, t_scene *s)
+float	block(t_spot *l, t_obj *o, t_ray *ray)
 {
 	t_ray	rl;
-	int		block;
+	float	block;
 
-	block = 0;
+	block = 1;
 	rl.eye = l->pos;
 	rl.dir = l->dir;
 	while (o)
@@ -86,12 +79,7 @@ int		block(t_spot *l, t_obj *o, t_ray *ray, t_scene *s)
 			{
 				l->l_to_inter_dist = ft_mag_vec(ft_sub_vec(o->inter, l->pos));
 				if (l->l_to_inter_dist < l->light_to_obj_dist)
-				{
-					if (!block)
-						ft_cal_color_final(ray, l, s->celshading);
-					block = 1;
-					calc(ray, o, s);
-				}
+						block *= o->pctrans;
 			}
 		}
 		o = o->next;
@@ -103,6 +91,7 @@ void	ft_light(t_scene *s, t_ray *ray)
 {
 	t_obj	*o;
 	t_spot	*l;
+	float	bloc;
 
 	if (s->spot == NULL)
 		return ;
@@ -113,8 +102,8 @@ void	ft_light(t_scene *s, t_ray *ray)
 		l->dir = ft_sub_vec(ray->obj->inter, l->pos);
 		l->light_to_obj_dist = ft_mag_vec(l->dir);
 		ft_normal(&l->dir);
-		if (!block(l, o, ray, s))
-			ft_cal_color_final(ray, l, s->celshading);
+		bloc = block(l, o, ray);
+		ft_cal_color_final(ray, l, s->celshading, bloc);
 		l = l->next;
 	}
 }
