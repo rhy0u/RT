@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 13:57:36 by cmeaun-a          #+#    #+#              #
-#    Updated: 2017/02/14 17:45:07 by cmeaun-a         ###   ########.fr        #
+#    Updated: 2017/10/31 01:52:07 by jcentaur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,14 +35,14 @@ CC = -Wall -Wextra -Werror -I .
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(CC) $(SRCS)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@gcc -c $(CC) $(SRCS)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
