@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 19:57:26 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/31 02:42:48 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/03 02:16:42 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_inter_obj(t_scene *s, t_ray *ray)
 
 	tmp = s->obj;
 	ray->t = LIM;
-	ray->obj = new_list();
+	ray->obj = NULL;
 	while (tmp)
 	{
 		if (tmp != ray->objref)

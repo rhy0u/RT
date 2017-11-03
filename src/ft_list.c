@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 21:13:44 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/07 00:10:38 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/11/03 02:45:58 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-t_obj		*new_list(void)
-{
-	return (NULL);
-}
 
 void		list_push_back(t_obj **li, t_obj *new)
 {
@@ -60,6 +55,7 @@ t_spot		*spot(char *str)
 	s = NULL;
 	if (!(s = (t_spot *)malloc(sizeof(t_spot))))
 		return (NULL);
+	clear_spot(s);
 	while (str[i] && (ft_strncmp("</spot>", &str[i], 7)))
 	{
 		if (ft_strncmp("<origine>", &str[i], 9) == 0)

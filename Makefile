@@ -6,7 +6,7 @@
 #    By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/16 14:01:52 by cmeaun-a          #+#    #+#              #
-#    Updated: 2017/10/31 05:14:52 by jcentaur         ###   ########.fr        #
+#    Updated: 2017/11/03 02:39:16 by jcentaur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = main.c rgb.c ft_get_scene.c ft_rt.c sphere.c \
 	vectors.c cone.c inter_obj.c light.c vector2.c rotation.c \
 	cal_radian.c free_all.c gtk.c disk.c ft_cut.c ft_save.c ft_movecam.c \
 	damier.c filters.c anti_aliasing.c movecam.c threads.c ft_init_obj2.c \
-	vector3.c \
+	vector3.c init.c \
 
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

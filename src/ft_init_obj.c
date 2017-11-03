@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 03:07:55 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/31 01:53:00 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/03 02:23:03 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ t_obj		*list_sphere(char *str)
 {
 	t_obj	*obj;
 
-	obj = new_list();
 	if (!(obj = (t_obj *)malloc(sizeof(t_obj))))
 		return (NULL);
+	clear_obj(obj);
 	obj->name = SPHERE;
 	info_obj(str, obj);
 	obj->next = NULL;
@@ -77,9 +77,9 @@ t_obj		*list_cone(char *str)
 {
 	t_obj	*obj;
 
-	obj = new_list();
 	if (!(obj = (t_obj *)malloc(sizeof(t_obj))))
 		return (NULL);
+	clear_obj(obj);
 	obj->name = CONE;
 	info_obj(str, obj);
 	obj->next = NULL;

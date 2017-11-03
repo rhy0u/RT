@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/31 03:31:44 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/03 02:47:51 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,6 @@ float				get_radius(char *str);
 float				get_float(char *str);
 void				get_cam(t_scene *s, char *str);
 t_spot				*spot(char *str);
-t_obj				*new_list(void);
 void				list_push_back(t_obj **li, t_obj *new_obj);
 void				list_add_spot(t_spot **li, t_spot *new_spot);
 t_obj				*list_damier(char *str);
@@ -229,4 +228,7 @@ void				ft_movecam(t_sdl *sdl, t_scene *scene);
 void				ft_reflec(t_scene *scene, t_ray *ray, int index);
 void 				ft_refrac(t_scene *scene, t_ray *ray, int index);
 void				info_obj(char *str, t_obj *obj);
+void				clear_obj(t_obj *o);
+void				clear_spot(t_spot *l);
+void				clear_cam(t_scene *s);
 #endif

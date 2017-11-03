@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 13:22:48 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/31 01:44:05 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/03 02:47:18 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void		get_objets(t_scene *scene, char *str)
 {
 	int i;
 
-	scene->obj = new_list();
+	clear_cam(scene);
+	scene->obj = NULL;
 	i = 0;
 	while (str[i])
 	{
