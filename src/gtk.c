@@ -6,7 +6,7 @@
 /*   By: pthouard <pthouard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 02:24:01 by pthouard          #+#    #+#             */
-/*   Updated: 2017/10/31 03:23:29 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/03 03:55:59 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void				creer_file_selection(void)
 	GtkWidget				*dialog;
 	gint					res;
 	GtkFileChooser			*chooser;
-	char					*gfilename;
 
 	dialog = creer_file_selection_bis();
 	gtk_window_set_position((GtkWindow *)dialog, GTK_WIN_POS_CENTER);
@@ -45,9 +44,7 @@ void				creer_file_selection(void)
 	if (res == GTK_RESPONSE_ACCEPT)
 	{
 		chooser = GTK_FILE_CHOOSER(dialog);
-		gfilename = gtk_file_chooser_get_filename(chooser);
-		g_free(gfilename);
-		g_filename = ft_strdup(gfilename);
+		g_filename = gtk_file_chooser_get_filename(chooser);
 	}
 	gtk_widget_destroy(dialog);
 }

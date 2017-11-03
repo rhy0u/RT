@@ -6,7 +6,7 @@
 #    By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/16 14:01:52 by cmeaun-a          #+#    #+#              #
-#    Updated: 2017/11/03 02:39:16 by jcentaur         ###   ########.fr        #
+#    Updated: 2017/11/03 02:53:15 by jcentaur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ $(NAME): $(OBJ)
 	@make -C $(LIBFT)
 	@echo "\x1B[33mCreating binary $@ \x1B[0m"
 	@gcc -o $(NAME) -I$(HDRDIR) $(LIBA) $(OBJ) $(FW) `pkg-config --libs --cflags gtk+-3.0`
+	@clear
 	@echo "\x1B[31m\n\
 RRRRRRRRRRRRRRRRR      TTTTTTTTTTTTTTTTTTTTTTT\n\
 R::::::::::::::::R     T:::::::::::::::::::::T\n\
@@ -64,15 +65,18 @@ RRRRRRRR     RRRRRRR         TTTTTTTTTTT\x1B[0m"
 $(OBJDIR)%.o:$(SRCDIR)%.c
 	@echo "\x1B[34mCompiling $(<:src/%=%) \x1B[0m"
 	@gcc $(FLAGS) -I$(HDRDIR) -I ./ -o $@ -c $< `pkg-config --cflags gtk+-3.0`
+	@clear
 
 clean:
 	@/bin/rm -f $(OBJ)
 	@echo "\x1B[31mDeleting objects\x1B[0m"
 	@make -C $(LIBFT) clean
+	@clear
 
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@echo "\x1B[31mDeleting binary\x1B[0m"
 	@make -C $(LIBFT) fclean
+	@clear
 
 re: fclean all

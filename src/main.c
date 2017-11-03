@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/31 03:24:15 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/03 04:06:45 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		ft_sdl_loop(t_sdl *sdl, t_scene *scene)
 	}
 }
 
-int			main2(t_sdl *sdl, t_scene *scene, char **av)
+int			main2(t_sdl *sdl, t_scene *scene, char **filename)
 {
 	int			fd;
 
@@ -65,7 +65,7 @@ int			main2(t_sdl *sdl, t_scene *scene, char **av)
 		SDL_Quit();
 		return (0);
 	}
-	if ((fd = open(av[1], O_RDONLY)) < 0)
+	if ((fd = open(filename[0], O_RDONLY)) < 0)
 		return (0);
 	scene->res = 1;
 	scene->celshading = 0;
@@ -94,13 +94,21 @@ int			main(int ac, char **av)
 	GtkApplication	*app;
 	int				status;
 
-	if (!(g_filename = malloc(sizeof(char**))))
-		return (0);
-	app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE);
-	g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
-	status = g_application_run(G_APPLICATION(app), ac, av);
-	if (!main2(&sdl, &scene, &g_filename))
-		return (0);
+	if ((ac == 3) && (ft_strncmp(av[1], "-f", 3) == 0))
+	{
+		g_filename = ft_strdup(av[2]);
+		if (!main2(&sdl, &scene, &g_filename))
+			return (0);
+	}
+	else
+	{
+		app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE);
+		g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
+		status = g_application_run(G_APPLICATION(app), ac, av);
+		if (!main2(&sdl, &scene, (&g_filename + 1)))
+			return (0);
+		g_object_unref(app);
+	}
 	sdl.renderer = SDL_CreateRenderer(sdl.win, -1, 0);
 	sdl.texture = SDL_CreateTexture(sdl.renderer, SDL_PIXELFORMAT_ARGB8888,
 		SDL_TEXTUREACCESS_STATIC, L / scene.res, H / scene.res);
@@ -111,7 +119,6 @@ int			main(int ac, char **av)
 	SDL_RenderPresent(sdl.renderer);
 	ft_sdl_loop(&sdl, &scene);
 	main_bis(sdl, scene);
-	g_object_unref(app);
 	SDL_Quit();
 	return (0);
 }
