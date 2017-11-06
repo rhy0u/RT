@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/03 02:47:51 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/11/07 00:27:02 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,7 +226,7 @@ t_xyz				get_pos(char *str, t_xyz trans);
 void				ft_save(t_sdl *sdl, t_scene *scene);
 void				ft_movecam(t_sdl *sdl, t_scene *scene);
 void				ft_reflec(t_scene *scene, t_ray *ray, int index);
-void 				ft_refrac(t_scene *scene, t_ray *ray, int index);
+void				ft_refrac(t_scene *scene, t_ray *ray, int index);
 void				info_obj(char *str, t_obj *obj);
 void				clear_obj(t_obj *o);
 void				clear_spot(t_spot *l);

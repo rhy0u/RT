@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/03 04:06:45 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/11/07 00:29:57 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,14 @@ int			main2(t_sdl *sdl, t_scene *scene, char **filename)
 
 static void	main_bis(t_sdl sdl, t_scene scene)
 {
+	sdl.texture = SDL_CreateTexture(sdl.renderer, SDL_PIXELFORMAT_ARGB8888,
+		SDL_TEXTUREACCESS_STATIC, L / scene.res, H / scene.res);
+	SDL_UpdateTexture(sdl.texture, NULL, sdl.pixels, L / scene.res
+		* sizeof(Uint32));
+	SDL_RenderClear(sdl.renderer);
+	SDL_RenderCopy(sdl.renderer, sdl.texture, NULL, NULL);
+	SDL_RenderPresent(sdl.renderer);
+	ft_sdl_loop(&sdl, &scene);
 	SDL_DestroyWindow(sdl.win);
 	SDL_DestroyTexture(sdl.texture);
 	SDL_DestroyRenderer(sdl.renderer);
@@ -110,14 +118,6 @@ int			main(int ac, char **av)
 		g_object_unref(app);
 	}
 	sdl.renderer = SDL_CreateRenderer(sdl.win, -1, 0);
-	sdl.texture = SDL_CreateTexture(sdl.renderer, SDL_PIXELFORMAT_ARGB8888,
-		SDL_TEXTUREACCESS_STATIC, L / scene.res, H / scene.res);
-	SDL_UpdateTexture(sdl.texture, NULL, sdl.pixels, L / scene.res
-		* sizeof(Uint32));
-	SDL_RenderClear(sdl.renderer);
-	SDL_RenderCopy(sdl.renderer, sdl.texture, NULL, NULL);
-	SDL_RenderPresent(sdl.renderer);
-	ft_sdl_loop(&sdl, &scene);
 	main_bis(sdl, scene);
 	SDL_Quit();
 	return (0);
