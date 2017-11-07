@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 13:22:48 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/03 02:47:18 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/11/07 02:42:33 by pthouard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void		get_cam(t_scene *s, char *str)
 	int i;
 
 	i = 0;
+	clear_cam(s);
 	while (str[i] && (ft_strncmp("</camera>", &str[i], 9)))
 	{
 		if (!ft_strncmp("<origine>", &str[i], 9))
@@ -51,7 +52,6 @@ void		get_objets(t_scene *scene, char *str)
 {
 	int i;
 
-	clear_cam(scene);
 	scene->obj = NULL;
 	i = 0;
 	while (str[i])

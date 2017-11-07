@@ -43,7 +43,7 @@
 		<refrac>100/100</refrac>
 		<pctrans>0/100</pctrans>
 		<cutonoff>0</cutonoff>
-		<cut>-20 0 0</cut>
+		<cut>0 0 0</cut>
 		<cutnorm>1 0 0</cutnorm>
 		<vague>0</vague>
 	</object>

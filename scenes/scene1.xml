@@ -1,22 +1,24 @@
 <?xml version = "1.0"?>
 <scene>
 	<camera>
-		<origine>0 0 -200</origine>
+		<origine>0 200 -200</origine>
 		<look_at>0 0 0</look_at>
 		<ambiante>20</ambiante>
 	</camera>
 	<spot>
 		<origine>0 150 0</origine>
+		<color>255 255 255</color>
+		<diffuse>50</diffuse>
 	</spot>
 	<spot>
 		<origine>50 150 0</origine>
 		<color>255 255 255</color>
-		<diffuse>20</diffuse>
+		<diffuse>50</diffuse>
 	</spot>
 	<spot>
 		<origine>-50 150 0</origine>
 		<color>255 255 255</color>
-		<diffuse>20</diffuse>
+		<diffuse>50</diffuse>
 	</spot>
 	<object name="sphere">
 		<normal>0 1 0</normal>
