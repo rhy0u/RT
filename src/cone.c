@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cone.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmeaun-a <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:23:42 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/06/05 23:44:28 by cmeaun-a         ###   ########.fr       */
+/*   Updated: 2017/11/09 01:02:28 by cmeaun-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ float				ft_equa_cone(t_ray r, t_obj *s)
 	delta = s->b * s->b - 4 * s->a * s->c;
 	if (delta < 0)
 		return (0);
-	else
-		s->t1 = (-s->b + sqrt(delta)) / (2 * s->a);
+	s->t1 = (-s->b + sqrt(delta)) / (2 * s->a);
 	s->t2 = (-s->b - sqrt(delta)) / (2 * s->a);
 	s->t = (s->t1 < s->t2) ? s->t1 : s->t2;
 	if (s->t < 0)
@@ -42,8 +41,6 @@ int					ft_cone(t_ray ray, t_obj *s)
 {
 	t_ray r;
 	float k;
-	t_xyz cp;
-	t_xyz m;
 
 	s->v = ft_vect(0, 0, 1);
 	r = ray_virt(ray, s);
@@ -54,10 +51,14 @@ int					ft_cone(t_ray ray, t_obj *s)
 	}
 	k = tan(s->radius / 2.0);
 	s->inter = ft_add_vec(r.eye, ft_scal(r.dir, s->t));
-	cp = ft_sub_vec(s->inter, s->pos);
-	m = ft_mul_vec(cp, s->v);
-	s->normal_inter = ft_sub_vec(cp, ft_scal(ft_mul_vec(s->v, m),
-				(1 + k * k)));
+	s->normal_inter = ft_sub_vec(ft_sub_vec(s->inter, s->pos), ft_scal(
+		ft_mul_vec(s->v, ft_mul_vec(ft_sub_vec(s->inter, s->pos), s->v)),
+		(1 + k * k)));
+	if ((s->cutonoff == 1) && (s->tcut > s->t1 && s->tcut < s->t2))
+	{
+		s->inter = ft_add_vec(r.eye, ft_scal(r.dir, s->tcut));
+		s->normal_inter = ft_scal(s->cutnorm, -1);
+	}
 	ft_normal(&s->normal_inter);
 	s->normal_inter = rot_all_inv(s->normal_inter, s->rot.x, s->rot.y,
 			s->rot.z);
