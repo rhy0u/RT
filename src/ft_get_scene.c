@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 13:22:48 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/07 02:42:33 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/09 01:04:24 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static void	get_objets_bis(t_scene *scene, char *str, int i)
 		list_push_back(&scene->obj, list_spot(&str[i]));
 	else if (ft_strncmp("name=\"damier\">", &str[i], 14) == 0)
 		list_push_back(&scene->obj, list_damier(&str[i]));
+	else if (ft_strncmp("name=\"mickey\">", &str[i], 14) == 0)
+		list_push_back(&scene->obj, list_mickey(&str[i]));
 }
 
 void		get_objets(t_scene *scene, char *str)

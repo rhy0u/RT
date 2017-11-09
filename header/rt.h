@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/07 00:27:02 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/09 01:06:37 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,7 @@ t_obj				*list_cyl(char *str);
 t_obj				*list_plane(char *str);
 t_obj				*list_disk(char *str);
 t_obj				*list_spot(char *str);
+t_obj				*list_mickey(char *str);
 t_xyz				ft_camera(t_scene *s, t_cam c, float x, float y);
 void				ft_cal_vec_cam(t_scene *s, t_cam *c);
 void				ft_normal(t_xyz *vec);

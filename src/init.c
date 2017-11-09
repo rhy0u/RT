@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 01:10:15 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/11/03 02:46:15 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/11/09 01:28:50 by jcentaur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	clear_obj(t_obj *o)
 	o->specular = 0;
 	o->cutonoff = 0;
 	o->reflec = 0;
-	o->refrac = 1;
+	o->refrac = 0;
 	o->pctrans = 0;
 	o->cutisreal = 0;
 	o->vague = 0;

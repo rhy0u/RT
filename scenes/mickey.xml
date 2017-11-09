@@ -1,0 +1,33 @@
+<?xml version = "1.0"?>
+<scene>
+	<camera>
+		<origine>0 50 -200</origine>
+		<look_at>0 0 0</look_at>
+		<ambiante>30</ambiante>
+	</camera>
+	<spot>
+		<origine>0 50 0</origine>
+		<color>255 255 255</color>
+		<diffuse>50</diffuse>
+	</spot>
+	<object name="spot">
+		<origine>0 50 0</origine>
+		<normal>0 1 0</normal>
+		<radius>6</radius>
+		<color>255 255 255</color>
+	</object>
+	<object name="plane">
+		<origine>0 -10 0</origine>
+		<normal>0 1 0</normal>
+		<color>150 150 150</color>
+	</object>
+	<object name="mickey">
+		<origine>0 15 0</origine>
+		<normal>0 1 0</normal>
+		<radius>20</radius>
+		<color>250 250 20</color>
+		<refrac>100/100</refrac>
+		<pctrans>50</pctrans>
+		<specular>1</specular>
+	</object>
+</scene>
