@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/25 03:07:55 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/07 02:42:53 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/09 01:18:11 by cmeaun-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,25 @@ static void	info_obj_bis(char *str, t_obj *obj, int i)
 		obj->pctrans = get_radius(&str[i]) / 100;
 	else if (ft_strncmp("<vague>", &str[i], 7) == 0)
 		obj->vague = get_radius(&str[i]);
+}
+
+static void	cut_is_real(t_obj *obj)
+{
+	t_xyz	dist;
+
+	if (obj->cutonoff)
+	{
+		if (!obj->cutisreal)
+			obj->cut = ft_add_vec(obj->pos, obj->cut);
+		else
+		{
+			dist = ft_sub_vec(obj->cut, obj->pos);
+			dist = rot_all(dist, obj->rot.x, obj->rot.y, obj->rot.z);
+			obj->cut = ft_add_vec(obj->pos, dist);
+			obj->cutnorm = rot_all(obj->cutnorm, obj->rot.x, obj->rot.y,
+				obj->rot.z);
+		}
+	}
 }
 
 void		info_obj(char *str, t_obj *obj)
@@ -58,14 +77,7 @@ void		info_obj(char *str, t_obj *obj)
 			info_obj_bis(str, obj, i);
 		i++;
 	}
-	if (obj->cutonoff && !obj->cutisreal)
-	{
-		obj->cut = ft_add_vec(obj->pos, obj->cut);
-		obj->cutnorm = rot_all_inv(obj->cutnorm, -obj->rot.x, -obj->rot.y,
-			-obj->rot.z);
-		printf("cut = %f %f %f\n", obj->cut.x, obj->cut.y, obj->cut.z);
-	}
-
+	cut_is_real(obj);
 }
 
 t_obj		*list_sphere(char *str)

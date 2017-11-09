@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 23:39:35 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/10/18 04:05:18 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/08 02:12:08 by cmeaun-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,14 @@ int			ft_cylindre(t_ray ray, t_obj *s)
 	s->v = ft_vect(1, 0, 0);
 	s->inter = ft_add_vec(r.eye, ft_scal(r.dir, s->t));
 	if ((s->cutonoff == 1) && (s->tcut > s->t1 && s->tcut < s->t2))
+	{
+		s->inter = ft_add_vec(r.eye, ft_scal(r.dir, s->tcut));
 		s->normal_inter = ft_scal(s->cutnorm, -1);
+	}
 	else
 		s->normal_inter = ft_scal(ft_sub_vec(ft_sub_vec(s->inter,
-		s->pos), ft_mul_vec(ft_mul_vec(ft_sub_vec(s->inter, s->pos),
-		s->v), s->v)), 1 / s->radius);
+			s->pos), ft_mul_vec(ft_mul_vec(ft_sub_vec(s->inter, s->pos),
+			s->v), s->v)), 1 / s->radius);
 	ft_normal(&s->normal_inter);
 	s->normal_inter = rot_all_inv(s->normal_inter, s->rot.x, s->rot.y,
 			s->rot.z);
