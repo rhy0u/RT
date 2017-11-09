@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 13:56:08 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/07 00:29:57 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/09 03:43:31 by cmeaun-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static void	ft_sdl_loop_bis(t_sdl *sdl, t_scene *scene, int key)
 		ft_antialiasing(sdl);
 	else if (key == SDLK_c)
 		ft_celshading(sdl, scene);
-	else
+	else if (key == SDLK_d || key == SDLK_a || key == SDLK_s || key == SDLK_w
+		|| key == SDLK_q || key == SDLK_e)
 		ft_movecam(sdl, scene);
 }
 

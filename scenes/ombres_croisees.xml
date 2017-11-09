@@ -1,0 +1,35 @@
+<?xml version = "1.0"?>
+<scene>
+	<camera>
+		<origine>0 200 -200</origine>
+		<look_at>0 0 0</look_at>
+		<ambiante>20</ambiante>
+	</camera>
+	<spot>
+		<origine>0 150 0</origine>
+		<color>255 255 255</color>
+		<diffuse>20</diffuse>
+	</spot>
+	<spot>
+		<origine>50 150 0</origine>
+		<color>255 255 255</color>
+		<diffuse>20</diffuse>
+	</spot>
+	<spot>
+		<origine>-50 150 0</origine>
+		<color>255 255 255</color>
+		<diffuse>20</diffuse>
+	</spot>
+	<object name="sphere">
+		<normal>0 1 0</normal>
+		<radius>15</radius>
+		<color>255 0 255</color>
+		<specular>1</specular>
+	</object>
+	<object name="plane">
+		<origine>0 -50 0</origine>
+		<normal>0 1 0</normal>
+		<radius>15</radius>
+		<color>2 0 2</color>
+	</object>
+</scene>

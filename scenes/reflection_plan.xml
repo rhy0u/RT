@@ -1,0 +1,80 @@
+<?xml version = "1.0"?>
+<scene>
+	<camera>
+		<origine>0 0 -500</origine>
+		<look_at>0 0 0</look_at>
+		<ambiante>20</ambiante>
+	</camera>
+
+
+	<spot>
+		<origine>-30 0 0</origine>
+		<color>255 255 255</color>
+		<diffuse>50</diffuse>
+	</spot>
+	<object name="spot">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>-20 50 0</origine>
+		<normal>0 1 0</normal>
+		<radius>3</radius>
+		<color>255 255 255</color>
+		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+		<specular>1</specular>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 1 0</cutnorm>
+		<vague>0</vague>
+	</object>
+
+	<object name="plane">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>0 -30 0</origine>
+		<normal>0 1 0</normal>
+		<color>255 255 255</color>
+		<specular>0</specular>
+		<reflec>100/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cut>-20 0 0</cut>
+		<cutnorm>1 0 0</cutnorm>
+		<vague>0</vague>
+	</object>
+
+	<object name="sphere">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>10 0 0</origine>
+		<normal>0 1 0</normal>
+		<radius>25</radius>
+		<color>0 200 200</color>
+		<specular>1</specular>
+		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>50/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cutisreal>0</cutisreal>
+		<cut>50 0 0</cut>
+		<cutnorm>0 -1 0</cutnorm>
+	</object>
+	<object name="cone">
+		<rotation>90 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>10 0 0</origine>
+		<normal>0 1 0</normal>
+		<radius>5</radius>
+		<color>0 0 200</color>
+		<specular>1</specular>
+		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>50/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cutisreal>0</cutisreal>
+		<cut>50 0 0</cut>
+		<cutnorm>0 -1 0</cutnorm>
+	</object>
+</scene>

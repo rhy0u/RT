@@ -1,0 +1,74 @@
+<?xml version = "1.0"?>
+<scene>
+	<camera>
+		<origine>0 50 -200</origine>
+		<look_at>0 0 0</look_at>
+		<ambiante>30</ambiante>
+	</camera>
+
+	<object name="plane">
+		<origine>0 0 300</origine>
+		<normal>0 0 -1</normal>
+		<color>255 255 255</color>
+		<specular>0</specular>
+		<reflec>100/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+	</object>
+	<object name="plane">
+		<origine>0 0 -300</origine>
+		<normal>0 0 1</normal>
+		<color>255 255 255</color>
+		<specular>0</specular>
+		<reflec>100/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+	</object>
+	<object name="plane">
+		<origine>100 0 0</origine>
+		<normal>-1 0 0</normal>
+		<color>255 0 0</color>
+		<specular>0</specular>
+		<reflec>100/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+	</object>
+	<object name="plane">
+		<origine>0 100 0</origine>
+		<normal>0 -1 0</normal>
+		<color>255 255 255</color>
+		<specular>0</specular>
+		<reflec>100/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+	</object>
+	<object name="plane">
+		<origine>-100 0 0</origine>
+		<normal>1 0 0</normal>
+		<color>0 0 255</color>
+		<specular>0</specular>
+		<reflec>100/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+	</object>
+	<object name="plane">
+		<origine>0 -100 0</origine>
+		<normal>0 1 0</normal>
+		<color>0 255 0</color>
+		<specular>0</specular>
+		<reflec>100/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+	</object>
+
+	<object name="mickey">
+		<origine>0 0 0</origine>
+		<normal>0 1 0</normal>
+		<radius>16</radius>
+		<color>25 25 25</color>
+		<reflec>0/0</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0</pctrans>
+		<specular>1</specular>
+	</object>
+</scene>

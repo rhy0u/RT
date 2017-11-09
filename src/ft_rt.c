@@ -6,7 +6,7 @@
 /*   By: jcentaur <jcentaur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/21 02:23:38 by jcentaur          #+#    #+#             */
-/*   Updated: 2017/11/07 00:35:34 by pthouard         ###   ########.fr       */
+/*   Updated: 2017/11/09 03:17:40 by cmeaun-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		ft_reflec(t_scene *scene, t_ray *ray, int index)
 {
 	t_ray ref;
 
-	if (ray->obj->refrac >= 1 || index > 2)
+	if (ray->obj->refrac >= 1 || index > REFLEXMAX)
 		return ;
 	if (ray->obj->reflec != 0)
 	{

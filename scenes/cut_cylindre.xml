@@ -1,0 +1,47 @@
+<?xml version = "1.0"?>
+<scene>
+	<camera>
+		<origine>0 20 -200</origine>
+		<look_at>0 1 0</look_at>
+		<ambiante>20</ambiante>
+	</camera>
+
+
+	<spot>
+		<origine>-60 50 -100</origine>
+		<color>255 255 255</color>
+		<diffuse>50</diffuse>
+	</spot>
+
+	<object name="plane">
+		<rotation>0 0 0</rotation>
+		<translation>0 0 0</translation>
+		<origine>0 0 200</origine>
+		<normal>0 0 -1</normal>
+		<color>150 0 0</color>
+		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>0/100</refrac>
+		<pctrans>0/100</pctrans>
+		<cutonoff>0</cutonoff>
+		<cut>0 0 0</cut>
+		<cutnorm>0 0 0</cutnorm>
+		<vague>0</vague>
+	</object>
+
+	<object name="cylindre">
+		<rotation>0 0 0</rotation>
+		<origine>0 0 0</origine>
+		<normal>0 1 0</normal>
+		<radius>15</radius>
+		<color>210 160 255</color>
+		<specular>0</specular>
+		<reflec>0/100</reflec>
+		<refrac>100/100</refrac>
+		<pctrans>50/100</pctrans>
+		<cutonoff>1</cutonoff>
+		<cutisreal></cutisreal>
+		<cut>0 0 0</cut>
+		<cutnorm>2 2 1</cutnorm>
+	</object>
+</scene>

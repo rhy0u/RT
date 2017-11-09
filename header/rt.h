@@ -6,7 +6,7 @@
 /*   By: cmeaun-a <cmeaun-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 02:57:29 by cmeaun-a          #+#    #+#             */
-/*   Updated: 2017/11/09 01:06:37 by jcentaur         ###   ########.fr       */
+/*   Updated: 2017/11/09 03:43:15 by cmeaun-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define DISK 5
 # define SPOT 6
 # define DAM 7
-
+# define REFLEXMAX 2
 static char *g_filename;
 
 typedef struct		s_sdl
